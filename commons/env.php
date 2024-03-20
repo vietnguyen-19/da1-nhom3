@@ -10,8 +10,8 @@ define('PATH_CONTROLLER_ADMIN',__DIR__ . '/../admin/controllers/');
 define('PATH_MODEL_ADMIN',__DIR__ . '/../admin/models/');
 define('PATH_VIEW_ADMIN',__DIR__ . '/../admin/views/');
 
-define('BASE_URL',          'http://localhost/fix_da1/');
-define('BASE_URL_ADMIN',          'http://localhost/fix_da1/admin/');
+define('BASE_URL',          'http://localhost/da1-nhom3/');
+define('BASE_URL_ADMIN',          'http://localhost/da1-nhom3/admin/');
 
 
 
