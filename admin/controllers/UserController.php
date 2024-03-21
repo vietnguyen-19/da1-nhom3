@@ -3,21 +3,29 @@
 
 function UserListAll()
 {
-    $title = 'Danh sách user';
+    $title = 'Danh sách User';
     $view = 'users/index';
+    $script = 'datatable';
+    $script2 = 'users/script';
+    $style = 'datatable';
+    
+    $users = listAll('users');
 
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
-
-    $sql = "SELECT * FROM users";
-    $stmt = $GLOBALS['conn']->prepare($sql);
-    $stmt->execute();
-    return $users = $stmt->fetchAll();
 }
-
+ 
 function UserShowOne($id)
 {
-    $title = 'Chi tiết user' . 'khu vực thêm tên';
+
+    $user = showOne('users', $id);
+
+    if(empty($user)) {
+        e404();
+    }
+
+    $title = 'Chi tiết User: ' . $user['name'];
     $view = 'users/show';
+
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 
