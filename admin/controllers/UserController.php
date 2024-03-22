@@ -33,14 +33,22 @@ function UserCreate()
 {
     $title = 'Tạo mới user';
     $view = 'users/create';
+
+    
     require_once PATH_VIEW_ADMIN . 'layouts/master.php';
 }
 
 function UserUpdate($id)
 {
+    $user = showOne('users', $id);
+
+    if(empty($user)) {
+        e404();
+    }
+
     $title = 'Cập nhật thông tin user';
     $view = 'users/update';
-    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+    require_once PATH_VIEW_ADMIN . 'layouts/master.php' . $user['name'];
 }
 
 function UserDelete($id)

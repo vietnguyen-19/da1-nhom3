@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<!-- <div class="col-md-12">
     <!-- DATA TABLE -->
     <h3 class="title-5 m-b-35">Quản lý tài khoản</h3>
     <div class="table-data__tool">
@@ -198,4 +198,4 @@
         </table>
     </div>
     <!-- END DATA TABLE -->
-</div>
+</div> -->
