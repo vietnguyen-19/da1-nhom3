@@ -12,13 +12,16 @@ require_once '../commons/model.php';
 require_file(PATH_CONTROLLER_NEW_ADMIN);
 require_file(PATH_MODEL_NEW_ADMIN);
 require_file(PATH_VIEW_NEW_ADMIN);
-
+require_once "../controllers/HomeController.php";
 
 // điều hướng
 $act = $_GET['act'] ?? '/';
 
 match($act){
     '/' => HomeAdmin(),
+
+    // luồng người dùng
+    'users' => userListAll(),
 };
 
 

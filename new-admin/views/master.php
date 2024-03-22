@@ -32,7 +32,7 @@
 
     <!-- Main CSS-->
     <link href="../asets/admin/css/theme.css" rel="stylesheet" media="all">
-
+    
 </head>
 
 <body class="animsition">
@@ -53,7 +53,7 @@
 
             <!-- MAIN CONTENT-->
             <?php
-            require_once PATH_VIEW_NEW_ADMIN . 'DashBoard.php';
+            require_once PATH_VIEW_NEW_ADMIN . $view ;
             ?>
             <!-- END MAIN CONTENT-->
             <!-- FOOTER DESKOP -->

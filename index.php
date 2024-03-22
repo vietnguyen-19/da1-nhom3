@@ -17,10 +17,10 @@ require_once "./asets/admin/footer.php";
 
 
 // điều hướng 
-// $act = $_GET['act'] ?? '/';
-// match($act){
-//     '/' => dataUser(),
-// };
+$act = $_GET['act'] ?? '/';
+match($act){
+    '/' => dataUser(),
+};
 
 
 

@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="users">
                         <i class="far fa-user"></i>Tài khoản</a>
                 </li>
                 <li>
