@@ -9,7 +9,7 @@
             <ul class="list-unstyled navbar__list">
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                        <i class="fas fa-tachometer-alt"></i>Trang chủ</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="index.html">Dashboard 1</a>
@@ -27,15 +27,15 @@
                 </li>
                 <li>
                     <a href="chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
+                        <i class="fas fa-chart-bar"></i>Sản Phẩm</a>
                 </li>
                 <li class="active">
                     <a href="table.html">
-                        <i class="fas fa-table"></i>Tables</a>
+                        <i class="fas fa-table"></i>Tài Khoản</a>
                 </li>
                 <li>
                     <a href="form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
+                        <i class="far fa-check-square"></i>Đơn hàng</a>
                 </li>
                 <li>
                     <a href="calendar.html">

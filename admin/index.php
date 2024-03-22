@@ -5,6 +5,8 @@
 require_once "../commons/env.php";
 require_once "../commons/helper.php";
 require_once "../commons/connect-db.php";
+require_once '../commons/model.php';
+
 
 
 // require các file trong controllers và models 
@@ -21,7 +23,7 @@ match($act){
 
     // CRUD users
     'users' => UserListAll(),
-    'users-detail' => UserShowOne($_GET['id']),
+    'users-detail' => UserShowOne($_GET['id']),//test ?act=users-detail&id=1
     'users-create' => UserCreate(),
     'users-update' => UserUpdate($_GET['id']),
     'users-delete' => UserDelete($_GET['id']),
