@@ -56,15 +56,14 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user) : ?>
-
+                <?php foreach ($users as $user) : ?>                 
                     <tr class="tr-shadow">
-                        <td>
-                            <label class="au-checkbox">
-                                <input type="checkbox">
-                                <span class="au-checkmark"></span>
-                            </label>
-                        </td>
+                    <td>
+                        <label class="au-checkbox">
+                            <input type="checkbox">
+                            <span class="au-checkmark"></span>
+                        </label>
+                    </td>
                         <td><?= $user['id'] ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['password'] ?></td>
@@ -89,6 +88,7 @@
                     </tr>
                     <tr class="spacer"></tr>
                 <?php endforeach; ?>
+
             </tbody>
         </table>
     </div>
