@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <!-- DATA TABLE -->
     <h3 class="title-5 m-b-35">Quản lý tài khoản</h3>
-    <div class="table-data__tool">
+    <!-- <div class="table-data__tool">
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">
                 <select class="js-select2" name="property">
@@ -34,8 +34,8 @@
                 <div class="dropDownSelect2"></div>
             </div>
         </div>
-    </div>
-    <div class="table-responsive table-responsive-data2">
+    </div> -->
+    <!-- <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
             <thead>
                 <tr>
@@ -196,6 +196,6 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
     <!-- END DATA TABLE -->
 </div>
