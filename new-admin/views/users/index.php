@@ -81,22 +81,27 @@
                         </td>
                         <td>
                             <div class="table-data-feature">
-                                <a href="/?act=users-detail$id=<?= $user?>"></a>
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="fa fa-eye"></i>
-                                </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                    <i class="zmdi zmdi-edit"></i>
-                                </button>
-                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                    <i class="zmdi zmdi-delete"></i>
-                                </button>
+                                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-detail$id=<?= $user ?>">
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="show">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </a>
+                                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-update$id=<?= $user ?>">
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="zmdi zmdi-edit"></i>
+                                    </button>
+                                </a>
+                                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-delete$id=<?= $user ?>" onclick="return confirm('Bạn có chắc chắn xóa không')">
+                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                        <i class="zmdi zmdi-delete"></i>
+                                    </button>
+                                </a>
+
                             </div>
                         </td>
                     </tr>
                     <tr class="spacer"></tr>
                 <?php endforeach; ?>
-
             </tbody>
         </table>
     </div>

@@ -1,5 +1,4 @@
 <!-- main content dashborad -->
-<div class="page-container">
     <div class="main-content">
         <!-- WELCOME-->
         <section class="welcome p-t-10">
@@ -135,4 +134,4 @@
         <!-- END STATISTIC CHART-->
 
     </div>
-</div>
+

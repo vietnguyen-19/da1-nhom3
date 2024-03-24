@@ -8,12 +8,12 @@ require_once "../commons/connect-db.php";
 require_once '../commons/model.php';
 
 
+
 // require các file trong controllers và models 
 require_file(PATH_CONTROLLER_NEW_ADMIN);
 require_file(PATH_MODEL_NEW_ADMIN);
-require_file(PATH_VIEW_NEW_ADMIN);
 
-require_file(PATH_CONTROLLER);
+
 // điều hướng
 $act = $_GET['act'] ?? '/';
 
@@ -21,7 +21,7 @@ match($act){
     '/' => HomeAdmin(),
 
     // luồng người dùng
-    'users' => userListAll(),
+    'users' => UserListAll(),
     'users-detail' => UserShowOne($_GET['id']),//test ?act=users-detail&id=1
     'users-create' => UserCreate(),
     'users-update' => UserUpdate($_GET['id']),
