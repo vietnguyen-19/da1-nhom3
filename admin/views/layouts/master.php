@@ -39,13 +39,13 @@
     <div class="page-wrapper">
 
         <!-- MENU SIDEBAR-->
-        <?php require_once PATH_VIEW_ADMIN . "layouts/partials/sidebar.php" ?>
+        <?php require_once PATH_VIEW_ADMIN . "layouts/partials/sidebar.php"; ?>
         <!-- END MENU SIDEBAR-->
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php require_once PATH_VIEW_ADMIN . "layouts/partials/header.php" ?>
+            <?php require_once PATH_VIEW_ADMIN . "layouts/partials/header.php"; ?>
             <!-- END HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
@@ -56,12 +56,12 @@
 
                         <div class="row">
                             <!-- DATA TABLE -->
-                            <?php require_once PATH_VIEW_ADMIN . $view . ".php" ?>
+                            <?php require_once PATH_VIEW_ADMIN . $view . ".php"; ?>
                             <!-- END DATA TABLE -->
                         </div>
 
                         <!-- FOOTER CONTENT -->
-                        <?php require_once PATH_VIEW_ADMIN . "layouts/partials/footer.php" ?>
+                        <?php require_once PATH_VIEW_ADMIN . "layouts/partials/footer.php"; ?>
                         <!-- END FOORTER CONTENT -->
                     </div>
                 </div>

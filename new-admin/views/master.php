@@ -32,7 +32,7 @@
 
     <!-- Main CSS-->
     <link href="../asets/admin/css/theme.css" rel="stylesheet" media="all">
-    
+
 </head>
 
 <body class="animsition">
@@ -53,15 +53,16 @@
 
             <!-- MAIN CONTENT-->
             <?php
-            require_once PATH_VIEW_NEW_ADMIN . $view ;
+            // require_once PATH_VIEW_NEW_ADMIN . $views . '.php';
+            require_once PATH_VIEW_NEW_ADMIN . 'users/index.php';
             ?>
             <!-- END MAIN CONTENT-->
-            <!-- FOOTER DESKOP -->
-            <?php
-            require_once PATH_VIEW_NEW_ADMIN . 'layouts/footer.php';
-            ?>
-            <!-- END FOOTER DESKOP -->
         </div>
+        <!-- FOOTER DESKOP -->
+        <?php
+        require_once PATH_VIEW_NEW_ADMIN . 'layouts/footer.php';
+        ?>
+        <!-- END FOOTER DESKOP -->
         <!-- END PAGE CONTAINER-->
     </div>
 

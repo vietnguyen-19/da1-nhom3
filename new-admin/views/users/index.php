@@ -19,10 +19,11 @@
         <button class="au-btn-filter">
             <i class="zmdi zmdi-filter-list"></i>filters</button>
     </div>
+    <!-- thêm user -->
     <div class="table-data__tool-right">
-        <a href="<?= BASE_URL_ADMIN ?>?act=users-create">
-        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-            <i class="zmdi zmdi-plus" ></i>Thêm mới</button>
+        <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-create">
+            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                <i class="zmdi zmdi-plus"></i>Thêm mới</button>
         </a>
         <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
             <select class="js-select2" name="type">
@@ -38,7 +39,7 @@
 
 <div class="col-md-12">
     <!-- DATA TABLE -->
-    <h3 class="title-5 m-b-35">Quản lý tài khoản</h3>
+    <h3 class="title-5 m-b-35"><?= $title ?></h3>
 
     <div class="table-responsive table-responsive-data2">
         <table class="table table-data2">
@@ -55,15 +56,16 @@
                     <th></th>
                 </tr>
             </thead>
+
             <tbody>
-                <?php foreach ($users as $user) : ?>                 
+                <?php foreach ($users as $user) : ?>
                     <tr class="tr-shadow">
-                    <td>
-                        <label class="au-checkbox">
-                            <input type="checkbox">
-                            <span class="au-checkmark"></span>
-                        </label>
-                    </td>
+                        <td>
+                            <label class="au-checkbox">
+                                <input type="checkbox">
+                                <span class="au-checkmark"></span>
+                            </label>
+                        </td>
                         <td><?= $user['id'] ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['password'] ?></td>
@@ -73,10 +75,16 @@
                         </td>
                         <td><?= $user['phone'] ?></td>
                         <td>
-                            <span class="status--process"><?= $user['type'] ?></span>
+                            <span class="status--process"><?= $user['type']
+                                                                ? '<span class="badge badge-success" >Admin</span>'
+                                                                : '<span class="badge badge-warning" >Member</span>' ?></span>
                         </td>
                         <td>
                             <div class="table-data-feature">
+                                <a href="/?act=users-detail$id=<?= $user?>"></a>
+                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="fa fa-eye"></i>
+                                </button>
                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                     <i class="zmdi zmdi-edit"></i>
                                 </button>
