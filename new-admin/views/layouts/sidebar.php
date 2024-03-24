@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="users">
+                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users">
                         <i class="far fa-user"></i>Tài khoản</a>
                 </li>
                 <li>

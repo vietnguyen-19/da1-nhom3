@@ -12,8 +12,8 @@ require_once '../commons/model.php';
 require_file(PATH_CONTROLLER_NEW_ADMIN);
 require_file(PATH_MODEL_NEW_ADMIN);
 require_file(PATH_VIEW_NEW_ADMIN);
-require_once "../controllers/HomeController.php";
 
+require_file(PATH_CONTROLLER);
 // điều hướng
 $act = $_GET['act'] ?? '/';
 
@@ -22,6 +22,10 @@ match($act){
 
     // luồng người dùng
     'users' => userListAll(),
+    'users-detail' => UserShowOne($_GET['id']),//test ?act=users-detail&id=1
+    'users-create' => UserCreate(),
+    'users-update' => UserUpdate($_GET['id']),
+    'users-delete' => UserDelete($_GET['id']),
 };
 
 
