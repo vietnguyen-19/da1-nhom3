@@ -5,8 +5,7 @@
             <div class="header-wrap">
                 <!-- header searching -->
                 <?php  
-                    require_once PATH_VIEW_NEW_ADMIN . "components\header-search.php";
-                    
+                    require_once PATH_VIEW_NEW_ADMIN . "components\header-search.php";    
                 ?>
                 <!-- end header searching -->
                 <div class="header-button">
