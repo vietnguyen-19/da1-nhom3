@@ -1,3 +1,4 @@
+<div class="main-content">
 <div class="col-md-12">
     <!-- DATA TABLE -->
     <h3 class="title-5 m-b-35">Quản lý tài khoản</h3>
@@ -31,6 +32,7 @@
         <?php } ?>
     </table>
 
-    <a href="<?= BASE_URL_ADMIN ?>?act=users" class="btn btn-danger">Back to list</a>
+    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Danh sách</a>
     <!-- END DATA TABLE -->
 </div>
+</div>  

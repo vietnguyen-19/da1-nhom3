@@ -19,7 +19,12 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="statistic__item statistic__item--green">
-                            <h2 class="number">10,368</h2>
+                            <h2 class="number">
+                                <?php
+                                    $users = listAll('users');
+                                    echo count($users);
+                                ?>
+                            </h2>
                             <span class="desc">Người dùng</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-account-o"></i>
@@ -28,7 +33,12 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="statistic__item statistic__item--orange">
-                            <h2 class="number">388,688</h2>
+                            <h2 class="number">
+                                <?php
+                                    $products = listAll('products');
+                                    echo count($products);
+                                ?>
+                            </h2>
                             <span class="desc">Sản phẩm</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-shopping-cart"></i>
@@ -37,8 +47,13 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="statistic__item statistic__item--red">
-                            <h2 class="number">$1,060,386</h2>
-                            <span class="desc">Doanh thu</span>
+                            <h2 class="number">
+                                <?php
+                                    $oders = listAll('oders');
+                                    echo count($oders);
+                                ?>
+                            </h2>
+                            <span class="desc">Đơn hàng</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-money"></i>
                             </div>
@@ -67,7 +82,10 @@
                             </div>
                             <div class="statistic-chart-1-note">
                                 <span class="big">10,368</span>
-                                <span>/ 16220 người dùng</span>
+                                <span>/ <?php
+                                    $users = listAll('users');
+                                    echo count($users);
+                                ?> người dùng</span>
                             </div>
                         </div>
                         <!-- END CHART-->
