@@ -45,13 +45,13 @@ function UserCreate()
 
         insert('users', $data);
 
-        $_SESSION['success'] = 'Thao tác thành công!';
+        $_SESSION['success'] = 'Thêm tài khoản thành công!';
 
         header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users');
         exit();
     }
 
-    require_once PATH_VIEW_ADMIN . 'master.php';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 function validateUserCreate($data)
 {
@@ -97,6 +97,11 @@ function UserUpdate($id)
 {
     $user = showOne('users', $id);
 
+    $title = 'Cập nhật thông tin user';
+    $views = 'users/update';
+    $name = 'cập nhật tài khoản: ' . $user['name'];
+   
+
     if (empty($user)) {
         e404();
     }
@@ -117,12 +122,11 @@ function UserUpdate($id)
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users-update');
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users-update&id=' . $id);
         exit();
     }
-    $title = 'Cập nhật thông tin user';
-    $views = 'users/update';
-    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
+    
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
 function UserDelete($id)
