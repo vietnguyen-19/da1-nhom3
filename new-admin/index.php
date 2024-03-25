@@ -26,6 +26,13 @@ match($act){
     'users-create' => UserCreate(),
     'users-update' => UserUpdate($_GET['id']),
     'users-delete' => UserDelete($_GET['id']),
+
+    // luồng Products
+    'product' => ProductListAll(),
+    'product-detail' => ProductsShowOne($_GET['id']),//test ?act=users-detail&id=1
+    'product-create' => ProductsCreate(),
+    'product-update' => ProductsUpdate($_GET['id']),
+    'product-delete' => ($_GET['id']),
 };
 
 
