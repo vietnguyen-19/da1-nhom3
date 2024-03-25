@@ -33,10 +33,6 @@
                     <a href="#">
                         <i class="far fa-check-square"></i>Đơn hàng</a>
                 </li>
-                <li>
-                    <a href="">
-                        <i class="far fa-chart-bar"></i>Thống kê</a>
-                </li>
             </ul>
         </nav>
     </div>

@@ -12,7 +12,6 @@
             <table class="table table-data2">
                 <thead>
                     <tr>
-                        <th> </th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Password</th>
@@ -27,12 +26,6 @@
                 <tbody>
                     <?php foreach ($users as $user) : ?>
                         <tr class="tr-shadow">
-                            <td>
-                                <label class="au-checkbox">
-                                    <input type="checkbox">
-                                    <span class="au-checkmark"></span>
-                                </label>
-                            </td>
                             <td><?= $user['id'] ?></td>
                             <td><?= $user['name'] ?></td>
                             <td><?= $user['password'] ?></td>
