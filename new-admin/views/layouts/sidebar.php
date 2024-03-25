@@ -8,8 +8,8 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
-                    <a href="#">
+                <li>
+                    <a href="?act=/">
                         <i class="fas fa-home"></i>Trang chủ</a>
 
                 </li>
