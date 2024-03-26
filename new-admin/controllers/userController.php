@@ -40,7 +40,6 @@ function UserCreate()
             "password" => $_POST['password'] ?? null,
             "type" => $_POST['type'] ?? null,
         ];
-
         validateUserCreate($data);
 
         insert('users', $data);
@@ -70,25 +69,18 @@ function validateUserCreate($data)
     } else if (!checkUniqueEmail('users', $data['email'])) {
         $errors[] = 'Email đã được sử dụng';
     }
-
     if (empty($data['password'])) {
         $errors[] = 'Trường password là bắt buộc';
-    } else if (strlen($data['password']) < 8 || strlen($data['password']) > 20) {
-        $errors[] = 'Trường password đồ dài nhỏ nhất là 8, lớn nhất là 20';
+    } else if (strlen($data['password']) < 6 || strlen($data['password']) > 20) {
+        $errors[] = 'Trường password đồ dài nhỏ nhất là 6, lớn nhất là 20';
     }
 
-
-    if ($data['type'] === null) {
-        $errors[] = 'Trường type là bắt buộc';
-    } else if (!in_array($data['type'], [0, 1])) {
-        $errors[] = 'Trường type phải là 0 or 1';
-    }
 
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
         $_SESSION['data'] = $data;
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=user-create');
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users-create');
         exit();
     }
 }
@@ -116,7 +108,7 @@ function UserUpdate($id)
             "type" => $_POST['type'] ?? null,
         ];
 
-        validateUserCreate($data);
+        validateUserUpdate($id,$data);
 
         update('users', $id, $data);
 
@@ -129,9 +121,42 @@ function UserUpdate($id)
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
+function validateUserUpdate($id, $data)
+{
+    $errors = [];
+
+    if (empty($data['name'])) {
+        $errors[] = 'Trường name là bắt buộc';
+    } else if (strlen($data['name']) > 50) {
+        $errors[] = 'Trường name dài tối đa 50 ký tự';
+    }
+
+    if (empty($data['email'])) {
+        $errors[] = 'Trường email là bắt buộc';
+    } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Trường email không đúng định dạng';
+    } else if (!checkUniqueEmailForUpdate('users', $id, $data['email'])) {
+        $errors[] = 'Email đã được sử dụng';
+    }
+    if (empty($data['password'])) {
+        $errors[] = 'Trường password là bắt buộc';
+    } else if (strlen($data['password']) < 6 || strlen($data['password']) > 20) {
+        $errors[] = 'Trường password đồ dài nhỏ nhất là 6, lớn nhất là 20';
+    }
+
+
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users-update&id=' . $id);
+        exit();
+    }
+}
 function UserDelete($id)
 {
     delete2('users', $id);
     header('Location: ' . BASE_URL_NEW_ADMIN . '?act=users');
+    $_SESSION['success'] = 'Xóa thành công!';
+
     exit();
 }

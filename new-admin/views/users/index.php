@@ -8,6 +8,14 @@
                     <i class="zmdi zmdi-plus"></i>Thêm mới</button>
             </a>
         </div>
+
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['success'] ?>
+            </div>
+            <?php unset($_SESSION['success']) ?>
+        <?php endif; ?>
+
         <div class="table-responsive table-responsive-data2">
             <table class="table table-data2">
                 <thead>

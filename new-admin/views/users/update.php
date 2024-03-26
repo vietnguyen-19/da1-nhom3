@@ -2,6 +2,26 @@
     <div class="col-md-12">
         <!-- DATA TABLE -->
         <h3 class="title-5 m-b-35"> <?= $name ?> </h3>
+
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['success'] ?>
+            </div>
+            <?php unset($_SESSION['success']) ?>
+            
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach ($_SESSION['errors'] as $error) : ?>
+                        <li> <?= $error ?> </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php unset($_SESSION['errors']) ?>
+        <?php endif; ?>
+
         <form action="" method="POST">
             <div class="row">
                 <div class="col-md-6">
@@ -33,7 +53,7 @@
                         <label for="type" class="form-label">Type:</label>
                         <select name="type" id="type" class="form-control">
                             <option <?= $user['type'] == 1 ? 'selected' : null ?> value="1">Admin</option>
-                            <option <?= $user['type'] == 0 ? 'selected' : null?> value="0">Member</option>
+                            <option <?= $user['type'] == 0 ? 'selected' : null ?> value="0">Member</option>
                         </select>
                     </div>
                 </div>
