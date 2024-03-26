@@ -2,7 +2,7 @@
 function ProductListAll()
 {
 
-    $products = listAll('products');
+    $products = listAllForPost('products');
 
     $title = 'Danh sách Products';
     $views = 'products/index';
@@ -34,65 +34,66 @@ function ProductsCreate()
 
         $data = [
             "name" => $_POST['name'] ?? null,
-            "email" => $_POST['email'] ?? null,
-            "address" => $_POST['address'] ?? null,
-            "phone" => $_POST['phone'] ?? null,
-            "password" => $_POST['password'] ?? null,
-            "type" => $_POST['type'] ?? null,
+            "price" => $_POST['price'] ?? null,
+            "sale_price" => $_POST['sale_price'] ?? null,
+            "description" => $_POST['description'],
+            "image" => $_POST['image'] ?? null,
+            "img_thumbnail" => $_POST['img_thumbnail'] ?? null,
+            "quantity" => $_POST['quantity'] ?? null,
         ];
 
-        validateProductsCreate($data);
+        // validateProductsCreate($data);
 
         insert('products', $data);
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products');
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product');
         exit();
     }
 
-    require_once PATH_VIEW_ADMIN . 'master.php';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
-function validateProductsCreate($data)
-{
-    $errors = [];
+// function validateProductsCreate($data)
+// {
+//     $errors = [];
 
-    if (empty($data['name'])) {
-        $errors[] = 'Trường name là bắt buộc';
-    } else if (strlen($data['name']) > 50) {
-        $errors[] = 'Trường name dài tối đa 50 ký tự';
-    }
+//     if (empty($data['name'])) {
+//         $errors[] = 'Trường name là bắt buộc';
+//     } else if (strlen($data['name']) > 50) {
+//         $errors[] = 'Trường name dài tối đa 50 ký tự';
+//     }
 
-    if (empty($data['email'])) {
-        $errors[] = 'Trường email là bắt buộc';
-    } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Trường email không đúng định dạng';
-    } else if (!checkUniqueEmail('products', $data['email'])) {
-        $errors[] = 'Email đã được sử dụng';
-    }
+//     if (empty($data['email'])) {
+//         $errors[] = 'Trường email là bắt buộc';
+//     } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+//         $errors[] = 'Trường email không đúng định dạng';
+//     } else if (!checkUniqueEmail('products', $data['email'])) {
+//         $errors[] = 'Email đã được sử dụng';
+//     }
 
-    if (empty($data['password'])) {
-        $errors[] = 'Trường password là bắt buộc';
-    } else if (strlen($data['password']) < 8 || strlen($data['password']) > 20) {
-        $errors[] = 'Trường password đồ dài nhỏ nhất là 8, lớn nhất là 20';
-    }
+//     if (empty($data['password'])) {
+//         $errors[] = 'Trường password là bắt buộc';
+//     } else if (strlen($data['password']) < 8 || strlen($data['password']) > 20) {
+//         $errors[] = 'Trường password đồ dài nhỏ nhất là 8, lớn nhất là 20';
+//     }
 
 
-    if ($data['type'] === null) {
-        $errors[] = 'Trường type là bắt buộc';
-    } else if (!in_array($data['type'], [0, 1])) {
-        $errors[] = 'Trường type phải là 0 or 1';
-    }
+//     if ($data['type'] === null) {
+//         $errors[] = 'Trường type là bắt buộc';
+//     } else if (!in_array($data['type'], [0, 1])) {
+//         $errors[] = 'Trường type phải là 0 or 1';
+//     }
 
-    if (!empty($errors)) {
-        $_SESSION['errors'] = $errors;
-        $_SESSION['data'] = $data;
+//     if (!empty($errors)) {
+//         $_SESSION['errors'] = $errors;
+//         $_SESSION['data'] = $data;
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=user-create');
-        exit();
-    }
-}
-
+//         header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-create');
+//         exit();
+    
+// }
+// }
 function ProductsUpdate($id)
 {
     $user = showOne('products', $id);
@@ -104,14 +105,17 @@ function ProductsUpdate($id)
 
         $data = [
             "name" => $_POST['name'] ?? null,
-            "email" => $_POST['email'] ?? null,
-            "address" => $_POST['address'] ?? null,
-            "phone" => $_POST['phone'] ?? null,
-            "password" => $_POST['password'] ?? null,
-            "type" => $_POST['type'] ?? null,
+            "price" => $_POST['price'] ?? null,
+            "sale-price" => $_POST['sale-price'] ?? null,
+            "description" => $_POST['description'] ?? null,
+            "image" => $_POST['image'] ?? null,
+            "image-thumbnail" => $_POST['image-thumbnail'] ?? null,
+            "quantity" => $_POST['quantity'] ?? null,
+            "key-word" => $_POST['key-word'] ?? null,
+ 
         ];
 
-        validateProductsCreate($data);
+        // validateProductsCreate($data);
 
         update('products', $id, $data);
 
@@ -125,9 +129,4 @@ function ProductsUpdate($id)
     require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
 }
 
-function UserDelete($id)
-{
-    delete2('products', $id);
-    header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products');
-    exit();
-}
+
