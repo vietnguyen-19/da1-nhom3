@@ -19,9 +19,15 @@ require_file(PATH_MODEL_NEW_ADMIN);
 // điều hướng
 $act = $_GET['act'] ?? '/';
 
-match($act){
+match ($act) {
     '/' => HomeAdmin(),
 
+    // luồng Products
+    'product' => ProductListAll(),
+    'product-detail' => ProductsShowOne($_GET['id']),
+    'product-create' => ProductsCreate(),
+    'product-update' => ProductsUpdate($_GET['id']),
+    'product-delete' => ProductDelete($_GET['id']),
     // luồng người dùng
     'users' => UserListAll(),
     'users-detail' => UserShowOne($_GET['id']),
