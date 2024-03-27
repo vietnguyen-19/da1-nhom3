@@ -33,6 +33,9 @@
     </table>
 
     <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Danh sách</a>
+    <a href="?act=users-update&id=<?=$user['id']?>">
+    <button class="btn btn-primary">Cập nhật</button>
+    </a>
     <!-- END DATA TABLE -->
 </div>
 </div>  

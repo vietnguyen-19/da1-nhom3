@@ -8,11 +8,18 @@
                     <i class="zmdi zmdi-plus"></i>Thêm mới</button>
             </a>
         </div>
+
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['success'] ?>
+            </div>
+            <?php unset($_SESSION['success']) ?>
+        <?php endif; ?>
+
         <div class="table-responsive table-responsive-data2">
             <table class="table table-data2">
                 <thead>
                     <tr>
-                        <th> </th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Password</th>
@@ -27,12 +34,6 @@
                 <tbody>
                     <?php foreach ($users as $user) : ?>
                         <tr class="tr-shadow">
-                            <td>
-                                <label class="au-checkbox">
-                                    <input type="checkbox">
-                                    <span class="au-checkmark"></span>
-                                </label>
-                            </td>
                             <td><?= $user['id'] ?></td>
                             <td><?= $user['name'] ?></td>
                             <td><?= $user['password'] ?></td>

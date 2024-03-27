@@ -1,9 +1,8 @@
 <?php
 
-
 if (!function_exists('checkUniqueEmail')) {
-
-    function checkUniqueEmail($tableName, $email) {
+    function checkUniqueEmail($tableName, $email)
+    {
         try {
             $sql = "SELECT * FROM $tableName WHERE email = :email LIMIT 1";
 
@@ -14,13 +13,14 @@ if (!function_exists('checkUniqueEmail')) {
             $stmt->execute();
 
             $data = $stmt->fetch();
-
+            
             return empty($data) ? true : false;
         } catch (\Exception $e) {
             debug($e);
         }
     }
 }
+
 
 if (!function_exists('checkUniqueEmailForUpdate')) {
 

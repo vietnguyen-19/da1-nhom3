@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // require các file trong commons 
 
 require_once "../commons/env.php";
@@ -28,10 +30,14 @@ match ($act) {
     'product-delete' => ProductDelete($_GET['id']),
     // luồng người dùng
     'users' => UserListAll(),
-    'users-detail' => UserShowOne($_GET['id']), //test ?act=users-detail&id=1
+    'users-detail' => UserShowOne($_GET['id']),
     'users-create' => UserCreate(),
     'users-update' => UserUpdate($_GET['id']),
     'users-delete' => UserDelete($_GET['id']),
+
+    // đăng nhập 
+    'login-admin' => LoginAdmin(),
+    'forgot-password' => ForgotPassword(),
 };
 
 
