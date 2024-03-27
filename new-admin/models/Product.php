@@ -1,30 +1,31 @@
 <?php
 
 if (!function_exists('listAllProduct')) {
-    function listAllForPost()
+    function listAllProduct()
     {
         try {
             $sql = "
-                SELECT 
-                    p.id            as p_id,
-                    p.id_brand      as p_id_brand ,
-                    p.id_category   as p_id_category,
-                    p.name          as p_name,
-                    p.price         as p_price,
-                    p.sale_price    as p_sale_price,
-                    p.description   as p_description,
-                    p.image         as p_p.image,
-                    p.img_thumbnail as p_img_thumbnail,
-                    p.quantity    as p_quantity,
-                    p.key_word    as p_key_word,
-                    c.name          as c_name,
-                    au.name         as au_name,
-                FROM products as p
-                INNER JOIN  categories   as c    ON c.id     = p.category_id
-                INNER JOIN users         as au   ON au.id    = p.author_id
-                ORDER BY p_id DESC;
+            SELECT 
+            p.id            as p_id,
+            p.id_brand      as p_id_brand,
+            p.id_category   as p_id_category,
+            p.name          as p_name,
+            p.price         as p_price,
+            p.sale_price    as p_sale_price,
+            p.description   as p_description,
+            p.image         as p_pimage,
+            p.img_thumbnail as p_img_thumbnail,
+            p.quantity      as p_quantity,
+            p.key_word      as p_key_word,
+            p.view          as p_view,
+            c.name          as c_name,
+            au.name         as au_name
+        FROM products as p
+        INNER JOIN categories as c ON c.id = p.id_category
+        INNER JOIN brands as au ON au.id = p.id_brand
+        ORDER BY p.id DESC;
             ";
-           
+
             $stmt = $GLOBALS['conn']->prepare($sql);
 
             $stmt->execute();

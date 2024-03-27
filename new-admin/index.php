@@ -25,7 +25,7 @@ match ($act) {
     'product-detail' => ProductsShowOne($_GET['id']),
     'product-create' => ProductsCreate(),
     'product-update' => ProductsUpdate($_GET['id']),
-    'product-delete' => ($_GET['id']),
+    'product-delete' => ProductDelete($_GET['id']),
     // luồng người dùng
     'users' => UserListAll(),
     'users-detail' => UserShowOne($_GET['id']), //test ?act=users-detail&id=1

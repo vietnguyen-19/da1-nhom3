@@ -2,7 +2,7 @@
 function ProductListAll()
 {
 
-    $products = listAllForPost('products');
+    $products = listAllProduct();
 
     $title = 'Danh sách Products';
     $views = 'products/index';
@@ -33,18 +33,51 @@ function ProductsCreate()
     if (!empty($_POST)) {
 
         $data = [
-            "name" => $_POST['name'] ?? null,
-            "price" => $_POST['price'] ?? null,
-            "sale_price" => $_POST['sale_price'] ?? null,
-            "description" => $_POST['description'],
-            "image" => $_POST['image'] ?? null,
-            "img_thumbnail" => $_POST['img_thumbnail'] ?? null,
-            "quantity" => $_POST['quantity'] ?? null,
+            'name'   => $_POST['category_id']    ?? null,
+            'price'     => $_POST['author_id']      ?? null,
+            'sale_price'         => $_POST['title']          ?? null,
+            'description'       => $_POST['excerpt']        ?? null,
+            'image'       => $_POST['content']        ?? null,
+            'img_thumnail'  => get_file_upload('img_thumnail'),
+            
         ];
+        $image = $data['image'];
+        if (is_array($image)) {
+            $data['image'] = upload_file($image, 'uploads/image/');
+        }
 
-        // validateProductsCreate($data);
+        $img_thumbnail = $data['img_thumbnail'];
+        if (is_array($img_thumbnail)) {
+            $data['img_thumbnail'] = upload_file($img_thumbnail, 'uploads/image/');
+        }
 
-        insert('products', $data);
+        try {
+            $GLOBALS['conn']->beginTransaction();
+
+            $postID = insert_get_last_id('products', $data);
+    
+            $GLOBALS['conn']->commit();
+        } catch (Exception $e) {
+            $GLOBALS['conn']->rollBack();
+
+            if (is_array($image) 
+                && !empty($data['image'])
+                && file_exists(PATH_UPLOAD . $data['image'])) {
+                unlink(PATH_UPLOAD . $data['image']);
+            }
+
+            if (is_array($img_thumbnail) 
+                && !empty($data['img_thumbnail'])
+                && file_exists(PATH_UPLOAD . $data['img_thumbnail'])) {
+                unlink(PATH_UPLOAD . $data['img_thumbnail']);
+            }
+            
+            debug($e);
+        }
+
+
+
+        
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
@@ -95,6 +128,40 @@ function ProductsCreate()
 // }
 // }
 function ProductsUpdate($id)
+{
+    $user = showOne('products', $id);
+
+    if (empty($user)) {
+        e404();
+    }
+    if (!empty($_POST)) {
+
+        $data = [
+            "name" => $_POST['name'] ?? null,
+            "price" => $_POST['price'] ?? null,
+            "sale-price" => $_POST['sale-price'] ?? null,
+            "description" => $_POST['description'] ?? null,
+            "image" => $_POST['image'] ?? null,
+            "image-thumbnail" => $_POST['image-thumbnail'] ?? null,
+            "quantity" => $_POST['quantity'] ?? null,
+            "key-word" => $_POST['key-word'] ?? null,
+ 
+        ];
+
+        // validateProductsCreate($data);
+
+        update('products', $id, $data);
+
+        $_SESSION['success'] = 'Thao tác thành công!';
+
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products-update');
+        exit();
+    }
+    $title = 'Cập nhật thông tin user';
+    $views = 'products/update';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
+}
+function ProductDelete($id)
 {
     $user = showOne('products', $id);
 
