@@ -33,7 +33,7 @@ function ProductsCreate()
     $script2    = 'posts/script';
 
     $categories     = listAll('categories');
-    $users        = listAll('users');
+    $products        = listAll('products');
     $brands           = listAll('brands');
 
     if (!empty($_POST)) {
@@ -147,9 +147,9 @@ function ProductsCreate()
 // }
 function ProductsUpdate($id)
 {
-    $user = showOne('products', $id);
+    $product = showOne('products', $id);
 
-    if (empty($user)) {
+    if (empty($product)) {
         e404();
     }
     if (!empty($_POST)) {
@@ -175,9 +175,9 @@ function ProductsUpdate($id)
         header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products-update');
         exit();
     }
-    $title = 'Cập nhật thông tin user';
+    $title = 'Cập nhật thông tin product';
     $views = 'products/update';
-    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $product['name'];
 }
 function productDelete($id)
 {
