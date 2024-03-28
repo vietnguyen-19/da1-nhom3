@@ -32,7 +32,7 @@ match ($act) {
     'product-detail' => ProductsShowOne($_GET['id']),
     'product-create' => ProductsCreate(),
     'product-update' => ProductsUpdate($_GET['id']),
-    'product-delete' => ProductDelete($_GET['id']),
+    'product-delete' => productDelete($_GET['id']),
 
     // luồng người dùng
     'users' => UserListAll(),
@@ -44,6 +44,13 @@ match ($act) {
     // luồng setting
     'setting-form' => settingShowForm(),
     'setting-save' => settingSave(),
+
+    'categories' => categoryListAll(),
+    'category-detail' => categoryShowOne($_GET['id']),
+    'category-create' => categoryCreate(),
+    'category-update' => categoryUpdate($_GET['id']),
+    'category-delete' => categoryDelete($_GET['id']),
+
 
     // đăng nhập 
     'login-admin' => LoginAdmin(),

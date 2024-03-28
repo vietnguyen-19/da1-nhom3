@@ -7,20 +7,22 @@
             <th>Dữ liệu</th>
         </tr>
 
-        <?php foreach ($user as $fieldName => $value) { ?>
+        <?php if (is_array($products)): ?>
+        <?php foreach ($products as $fieldName => $value): ?>
             <tr>
                 <td><?= ucfirst($fieldName) ?></td>
                 <td>
                     <?php
                     switch ($fieldName) {
-                        case 'password':
-                            echo '**********';
-                            break;
-                        case 'type':
-                            echo $value
-                                ? '<span class="badge badge-success">Admin</span>'
-                                : '<span class="badge badge-warning">Member</span>';
-                            break;
+                        case 'p_name':
+                        case 'p_price':
+                        case 'p_sale_price':
+                        case 'p_description':
+                        case 'p_pimage':
+                        case 'p_img_thumbnail':
+                        case 'p_quantity':
+                        case 'p_key_word':
+                        case 'p_view':
                         default:
                             echo $value;
                             break;
@@ -28,9 +30,9 @@
                     ?>
                 </td>
             </tr>
-        <?php } ?>
-    </table>
-
-    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Back to list</a>
-    <!-- END DATA TABLE -->
+        <?php endforeach; ?>
+    <?php endif; ?>
+</table>
+<a href="<?= BASE_URL_NEW_ADMIN ?>?act=product" class="btn btn-danger">Back to list</a>
+<!-- END DATA TABLE -->
 </div>
