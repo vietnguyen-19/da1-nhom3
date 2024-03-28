@@ -33,7 +33,6 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </table>
-
 <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product" class="btn btn-danger">Back to list</a>
 <!-- END DATA TABLE -->
 </div>

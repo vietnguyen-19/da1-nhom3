@@ -56,14 +56,14 @@ if (!function_exists('get_file_upload')) {
 
 if (!function_exists('middleware_auth_check')) {
     function middleware_auth_check($act) {
-        if ($act == 'login') {
-            if (!empty($_SESSION['user'])) {
-                header('Location: ' . BASE_URL_ADMIN);
+        if ($act == 'login-admin') {
+            if (!empty($_SESSION['admin'])) {
+                header('Location: ' . BASE_URL_NEW_ADMIN);
                 exit();
             }
         } 
-        elseif (empty($_SESSION['user'])) {
-            header('Location: ' . BASE_URL_ADMIN . '?act=login');
+        elseif (empty($_SESSION['admin'])) {
+            header('Location: ' . BASE_URL_NEW_ADMIN . '?act=login-admin');
             exit();
         }
     }
