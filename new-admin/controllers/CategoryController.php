@@ -24,7 +24,7 @@ function categoryShowOne($id)
     $title = 'Chi tiết category: ' . $category['name'];
     $view = 'categories/show';
 
-    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
 function categoryCreate()
@@ -44,11 +44,11 @@ function categoryCreate()
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_ADMIN . '?act=categories');
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=categories');
         exit();
     }
 
-    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
 function validateCategoryCreate($data) {
@@ -97,11 +97,11 @@ function categoryUpdate($id)
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_ADMIN . '?act=category-update&id=' . $id);
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=category-update&id=' . $id);
         exit();
     }
 
-    require_once PATH_VIEW_ADMIN . 'layouts/master.php';
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
 function validateCategoryUpdate($id, $data) {
@@ -122,7 +122,7 @@ function validateCategoryUpdate($id, $data) {
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
 
-        header('Location: ' . BASE_URL_ADMIN . '?act=category-update&id=' . $id);
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=category-update&id=' . $id);
         exit();
     }
 }
@@ -133,6 +133,6 @@ function categoryDelete($id)
 
     $_SESSION['success'] = 'Thao tác thành công!';
     
-    header('Location: ' . BASE_URL_ADMIN . '?act=categories');
+    header('Location: ' . BASE_URL_NEW_ADMIN . '?act=categories');
     exit();
 }

@@ -31,7 +31,7 @@ match ($act) {
     'product' => ProductListAll(),
     'product-detail' => ProductsShowOne($_GET['id']),
     'product-create' => ProductsCreate(),
-    'product-update' => ProductsUpdate($_GET['id']),
+    'product-update' => ProductUpdate($_GET['id']),
     'product-delete' => productDelete($_GET['id']),
 
     // luồng người dùng
@@ -50,6 +50,12 @@ match ($act) {
     'category-create' => categoryCreate(),
     'category-update' => categoryUpdate($_GET['id']),
     'category-delete' => categoryDelete($_GET['id']),
+
+    'brands' => brandsListAll(),
+    'brands-detail' => brandsShowOne($_GET['id']),
+    'brands-create' => brandsCreate(),
+    'brands-update' => brandsUpdate($_GET['id']),
+    'brands-delete' => brandsDelete($_GET['id']),
 
 
     // đăng nhập 

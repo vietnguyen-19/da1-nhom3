@@ -16,7 +16,7 @@
                     <th>Dữ liệu</th>
                 </tr>
 
-                <?php foreach ($category as $fieldName => $value) : ?>
+                <?php foreach ($brands as $fieldName => $value) : ?>
                     <tr>
                         <td><?= ucfirst($fieldName) ?></td>
                         <td><?= $value ?></td>

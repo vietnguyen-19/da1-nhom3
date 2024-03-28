@@ -45,17 +45,17 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="images" class="form-label">Images:</label>
-                    <input type="file" class="form-control" id="images" placeholder="Enter images" name="images">
+                    <input type="file" class="form-control" id="images" name="images">
                 </div>
                 <div class="mb-3 mt-3">
-                    <label for="images" class="form-label">Img Ihumbnail:</label>
-                    <input type="file" class="form-control" id="images" placeholder="Enter images" name="images">
+                    <label for="img_thumbnail" class="form-label">Img Ihumbnail:</label>
+                    <input type="file" class="form-control" id="img_thumbnail"  name="img_thumbnail">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
                     <label for="description" class="form-label">Mô tả sản phẩm:</label>
-                    <textarea id="content" name="content"><?= isset($_SESSION['data']) ? $_SESSION['data']['content'] : null ?></textarea>
+                    <textarea id="description" name="description"></textarea>
                 </div>
             </div>
         </div>

@@ -53,7 +53,7 @@
 
             <!-- MAIN CONTENT-->
             <?php
-            require_once PATH_VIEW_NEW_ADMIN . $views . '.php';
+            require_once PATH_VIEW_NEW_ADMIN . $view . '.php';
             // require_once PATH_VIEW_NEW_ADMIN .'users/index.php';
             ?>
             <!-- END MAIN CONTENT-->
