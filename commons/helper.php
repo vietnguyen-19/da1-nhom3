@@ -1,34 +1,70 @@
-<?php
+<?php 
 
-// file khai báo các hàm dùng gobal
+// Khai báo các hàm dùng Global
 if (!function_exists('require_file')) {
-    function require_file($pathFolder)
-    {
-        if (is_dir($pathFolder) && ($files = scandir($pathFolder)) !== false) {
-            $files = array_diff($files, ['.', '..']);
-            foreach ($files as $file) {
-                // Kiểm tra xem $file có phải là tệp không (không phải là thư mục)
-                if (is_file($pathFolder . DIRECTORY_SEPARATOR . $file)) {
-                    require_once $pathFolder . DIRECTORY_SEPARATOR  . $file;
-                }
-            }
-        } else {
-            echo "Không thể tìm thấy hoặc đọc thư mục: $pathFolder";
+    function require_file($pathFolder) {
+        $files = array_diff(scandir($pathFolder), ['.', '..']);
+
+        foreach($files as $file) {
+            require_once $pathFolder . $file;
         }
     }
 }
 
 if (!function_exists('debug')) {
-    function debug($data)
-    {
+    function debug($data) {
         echo "<pre>";
+
         print_r($data);
+
         die;
     }
 }
+
 if (!function_exists('e404')) {
     function e404() {
         echo "404 - Not found";
         die;
+    }
+}
+
+
+if (!function_exists('upload_file')) {
+    function upload_file($file, $pathFolderUpload) {
+        $imagePath = $pathFolderUpload . time() . '-' . basename($file['name']);
+            
+        if (move_uploaded_file($file['tmp_name'], PATH_UPLOAD . $imagePath)) {
+            return $imagePath;
+        }
+
+        return null;
+    }
+}
+
+
+if (!function_exists('get_file_upload')) {
+    function get_file_upload($field, $default = null) {
+
+        if (isset($_FILES[$field]) && $_FILES[$field]['size'] > 0) {
+
+            return $_FILES[$field];
+        }
+
+        return $default ?? null;
+    }
+}
+
+if (!function_exists('middleware_auth_check')) {
+    function middleware_auth_check($act) {
+        if ($act == 'login-admin') {
+            if (!empty($_SESSION['admin'])) {
+                header('Location: ' . BASE_URL_NEW_ADMIN);
+                exit();
+            }
+        } 
+        elseif (empty($_SESSION['admin'])) {
+            header('Location: ' . BASE_URL_NEW_ADMIN . '?act=login-admin');
+            exit();
+        }
     }
 }

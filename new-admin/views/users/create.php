@@ -5,7 +5,7 @@
         <h3 class="title-5 m-b-35">Thêm tài khoản</h3>
 
         <?php if (isset($_SESSION['success'])) : ?>
-            <div class="alert alert-danger">
+            <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
             </div>
         <?php endif; ?>
