@@ -52,17 +52,17 @@
 
                             <td>
                                 <div class="table-data-feature">
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-detail&id=<?= $product['p_id'] ?>">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product-detail&id=<?= $product['p_id'] ?>">
                                         <button class="item" data-toggle="tooltip" title="show">
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-update&id=<?= $product['p_id'] ?>">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product-update&id=<?= $product['p_id'] ?>">
                                         <button class="item" data-toggle="tooltip" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users-delete&id=<?= $product['p_id'] ?>" onclick="return confirm('Bạn có chắc chắn xóa không')">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product-delete&id=<?= $product['p_id'] ?>" onclick="return confirm('Bạn có chắc chắn xóa không')">
                                         <button class="item" data-toggle="tooltip" title="Delete">
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>
