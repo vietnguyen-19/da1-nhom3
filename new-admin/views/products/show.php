@@ -31,6 +31,6 @@
         <?php } ?>
     </table>
 
-    <a href="<?= BASE_URL_ADMIN ?>?act=users" class="btn btn-danger">Back to list</a>
+    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Back to list</a>
     <!-- END DATA TABLE -->
 </div>

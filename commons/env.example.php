@@ -10,7 +10,7 @@ define('PATH_VIEW',__DIR__ . '/../views/');
 define('PATH_CONTROLLER_NEW_ADMIN',__DIR__ . '/../new-admin/controllers/');
 define('PATH_MODEL_NEW_ADMIN',__DIR__ . '/../new-admin/models/');
 define('PATH_VIEW_NEW_ADMIN',__DIR__ . '/../new-admin/views/');
-
+define('PATH_UPLOAD',         __DIR__ . '/../');
 
 define('BASE_URL',          'http://localhost/da1-nhom3/');
 define('BASE_URL_NEW_ADMIN',          'http://localhost/da1-nhom3/new-admin/');

@@ -1,7 +1,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
-        <a href="#">
+        <a href="?act=/">
             <img src="../asets/admin/images/icon/logo.png" alt="Cool Admin" />
         </a>
     </div>
@@ -18,6 +18,9 @@
                         <i class="fas fa-shopping-cart"></i>Sản phẩm</a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
+                            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product">Danh sách</a>
+                        </li>
+                        <li>
                             <a href="#">Loại sản phẩm</a>
                         </li>
                         <li>
@@ -32,6 +35,10 @@
                 <li>
                     <a href="#">
                         <i class="far fa-check-square"></i>Đơn hàng</a>
+                </li>
+                <li>
+                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=setting-form">
+                        <i class="fa fa-gear"></i>Cài Đặt</a>
                 </li>
             </ul>
         </nav>
