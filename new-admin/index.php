@@ -45,6 +45,7 @@ match ($act) {
     'setting-form' => settingShowForm(),
     'setting-save' => settingSave(),
 
+    // luồng loại hàng
     'categories' => categoryListAll(),
     'category-detail' => categoryShowOne($_GET['id']),
     'category-create' => categoryCreate(),

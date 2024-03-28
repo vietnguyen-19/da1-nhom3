@@ -28,9 +28,7 @@ function ProductsShowOne($id)
 function ProductsCreate()
 {
     $title      = 'Thêm mới Product';
-    $view       = 'product/create';
-    $script     = 'datatable';
-    $script2    = 'posts/script';
+    $view       = 'products/create';      
 
     $categories     = listAll('categories');
     $products        = listAll('products');
