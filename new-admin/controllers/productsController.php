@@ -13,13 +13,13 @@ function ProductListAll()
 function ProductsShowOne($id)
 {
 
-    $user = showOne('products', $id);
+    $products = showOneForProduct($id);
 
-    if (empty($user)) {
+    if (empty($products)) {
         e404();
     }
 
-    $title = 'Chi tiết Products: ' . $user['name'];
+   
     $views = 'products/show';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
@@ -27,20 +27,30 @@ function ProductsShowOne($id)
 
 function ProductsCreate()
 {
-    $title = 'Thêm mới Products';
-    $views = 'products/create';
+    $title      = 'Thêm mới Product';
+    $view       = 'product/create';
+    $script     = 'datatable';
+    $script2    = 'posts/script';
+
+    $categories     = listAll('categories');
+    $users        = listAll('users');
+    $brands           = listAll('brands');
 
     if (!empty($_POST)) {
-
         $data = [
-            'name'   => $_POST['category_id']    ?? null,
-            'price'     => $_POST['author_id']      ?? null,
-            'sale_price'         => $_POST['title']          ?? null,
-            'description'       => $_POST['excerpt']        ?? null,
-            'image'       => $_POST['content']        ?? null,
-            'img_thumnail'  => get_file_upload('img_thumnail'),
-            
+            'id_brand'       => $_POST['id_brand']       ?? null,
+            'id_category'    => $_POST['id_category']    ?? null,
+            'name'           => $_POST['name']           ?? null,
+            'price'          => $_POST['price']          ?? null,
+            'sale_price'     => $_POST['sale_price']     ?? null,
+            'description'    => $_POST['description']    ?? null,
+            'image'          => get_file_upload('image'),
+            'img_thumbnail'  => get_file_upload('img_thumbnail'),
+            'quantity'       => $_POST['quantity']    ?? null,
+            'key_word'       => $_POST['key_word	']    ?? null,
+            'view'           => $_POST['view']    ?? null ,
         ];
+
         $image = $data['image'];
         if (is_array($image)) {
             $data['image'] = upload_file($image, 'uploads/image/');
@@ -54,30 +64,38 @@ function ProductsCreate()
         try {
             $GLOBALS['conn']->beginTransaction();
 
-            $postID = insert_get_last_id('products', $data);
-    
+            insert_get_last_id('products', $data);
+            // if (!empty($_POST['brands'])) {
+            //     foreach ($_POST['brands'] as $tagID) {
+            //         insert('pro_brands', [
+            //             'pro_id' => $productsID,
+            //             'brands' => $tagID,
+            //         ]);
+            //     }
+            // }
+
             $GLOBALS['conn']->commit();
         } catch (Exception $e) {
             $GLOBALS['conn']->rollBack();
 
-            if (is_array($image) 
+            if (
+                is_array($image)
                 && !empty($data['image'])
-                && file_exists(PATH_UPLOAD . $data['image'])) {
+                && file_exists(PATH_UPLOAD . $data['image'])
+            ) {
                 unlink(PATH_UPLOAD . $data['image']);
             }
 
-            if (is_array($img_thumbnail) 
+            if (
+                is_array($img_thumbnail)
                 && !empty($data['img_thumbnail'])
-                && file_exists(PATH_UPLOAD . $data['img_thumbnail'])) {
+                && file_exists(PATH_UPLOAD . $data['img_thumbnail'])
+            ) {
                 unlink(PATH_UPLOAD . $data['img_thumbnail']);
             }
-            
+
             debug($e);
         }
-
-
-
-        
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
@@ -124,7 +142,7 @@ function ProductsCreate()
 
 //         header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-create');
 //         exit();
-    
+
 // }
 // }
 function ProductsUpdate($id)
@@ -145,7 +163,7 @@ function ProductsUpdate($id)
             "image-thumbnail" => $_POST['image-thumbnail'] ?? null,
             "quantity" => $_POST['quantity'] ?? null,
             "key-word" => $_POST['key-word'] ?? null,
- 
+
         ];
 
         // validateProductsCreate($data);
@@ -161,39 +179,44 @@ function ProductsUpdate($id)
     $views = 'products/update';
     require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
 }
-function ProductDelete($id)
+function productDelete($id)
 {
-    $user = showOne('products', $id);
+    $product = showOneForProduct($id);
 
-    if (empty($user)) {
+    if (empty($product)) {
         e404();
     }
-    if (!empty($_POST)) {
 
-        $data = [
-            "name" => $_POST['name'] ?? null,
-            "price" => $_POST['price'] ?? null,
-            "sale-price" => $_POST['sale-price'] ?? null,
-            "description" => $_POST['description'] ?? null,
-            "image" => $_POST['image'] ?? null,
-            "image-thumbnail" => $_POST['image-thumbnail'] ?? null,
-            "quantity" => $_POST['quantity'] ?? null,
-            "key-word" => $_POST['key-word'] ?? null,
- 
-        ];
+    try {
+        $GLOBALS['conn']->beginTransaction();
 
-        // validateProductsCreate($data);
+       
 
-        update('products', $id, $data);
+        delete2('products', $id);
 
-        $_SESSION['success'] = 'Thao tác thành công!';
+        $GLOBALS['conn']->commit();
+    } catch (Exception $e) {
+        $GLOBALS['conn']->rollBack();
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products-update');
-        exit();
+        debug($e);
     }
-    $title = 'Cập nhật thông tin user';
-    $views = 'products/update';
-    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $user['name'];
+
+    if (
+        !empty($product['img_thumnail'])
+        && file_exists(PATH_UPLOAD . $product['img_thumnail'])
+    ) {
+        unlink(PATH_UPLOAD . $product['img_thumnail']);
+    }
+
+    if (
+        !empty($product['img_cover'])
+        && file_exists(PATH_UPLOAD . $product['img_cover'])
+    ) {
+        unlink(PATH_UPLOAD . $product['img_cover']);
+    }
+
+    $_SESSION['success'] = 'Thao tác thành công!';
+
+    header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product');
+    exit();
 }
-
-

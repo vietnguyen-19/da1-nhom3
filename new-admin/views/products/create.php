@@ -1,9 +1,33 @@
 <div class="col-md-12">
     <!-- DATA TABLE -->
 
-    <h3 class="title-5 m-b-35"> <?= $title?></h3>
-    <form action="" method="POST">
+    <h3 class="title-5 m-b-35">
+        <?= $title ?>
+    </h3>
+    <form action="" method="POST" enctype="multipart/form-data">
         <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3 mt-3">
+                    <label for="id_category" class="form-label">Categories:</label>
+                    <select class="form-control" id="id_category" name="id_category">
+                        <?php foreach ($categories as $category) : ?>
+                            <option value="<?= $category['id'] ?>">
+                                <?= $category['name'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="id_brand" class="form-label">Brand:</label>
+                    <select class="form-control" id="id_brand" name="id_brand">
+                        <?php foreach ($brands as $brand) : ?>
+                            <option value="<?= $brand['id'] ?>">
+                                <?= $brand['name'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
                     <label for="name" class="form-label">Name:</label>
@@ -31,7 +55,7 @@
             <div class="col-md-6">
                 <div class="mb-3 mt-3">
                     <label for="description" class="form-label">Mô tả sản phẩm:</label>
-                    <textarea class="form-control" id="description" name="description" required></textarea>
+                    <textarea id="content" name="content"><?= isset($_SESSION['data']) ? $_SESSION['data']['content'] : null ?></textarea>
                 </div>
             </div>
         </div>

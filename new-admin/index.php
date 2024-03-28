@@ -27,13 +27,19 @@ match ($act) {
     'product-detail' => ProductsShowOne($_GET['id']),
     'product-create' => ProductsCreate(),
     'product-update' => ProductsUpdate($_GET['id']),
-    'product-delete' => ProductDelete($_GET['id']),
+    'product-delete' => productDelete($_GET['id']),
     // luồng người dùng
     'users' => UserListAll(),
     'users-detail' => UserShowOne($_GET['id']),
     'users-create' => UserCreate(),
     'users-update' => UserUpdate($_GET['id']),
     'users-delete' => UserDelete($_GET['id']),
+
+    'categories' => categoryListAll(),
+    'category-detail' => categoryShowOne($_GET['id']),
+    'category-create' => categoryCreate(),
+    'category-update' => categoryUpdate($_GET['id']),
+    'category-delete' => categoryDelete($_GET['id']),
 
     // đăng nhập 
     'login-admin' => LoginAdmin(),

@@ -16,7 +16,7 @@ define('BASE_URL',          'http://localhost/da1-nhom3/');
 define('BASE_URL_ADMIN',          'http://localhost/da1-nhom3/admin/');
 define('BASE_URL_NEW_ADMIN',          'http://localhost/da1-nhom3/new-admin/');
 
-
+define('PATH_UPLOAD',         __DIR__ . '../');
 
 // thông tin kết nối database
 define('DB_HOST','localhost');
