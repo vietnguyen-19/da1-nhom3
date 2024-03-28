@@ -12,15 +12,27 @@ require_once '../commons/model.php';
 
 
 // require các file trong controllers và models 
+require_file(PATH_MODEL);
 require_file(PATH_CONTROLLER_NEW_ADMIN);
 require_file(PATH_MODEL_NEW_ADMIN);
+
 
 
 // điều hướng
 $act = $_GET['act'] ?? '/';
 
-match($act){
+// check đã đăng nhập admin chưa
+middleware_auth_check($act);
+
+match ($act) {
     '/' => HomeAdmin(),
+
+    // luồng Products
+    'product' => ProductListAll(),
+    'product-detail' => ProductsShowOne($_GET['id']),
+    'product-create' => ProductsCreate(),
+    'product-update' => ProductsUpdate($_GET['id']),
+    'product-delete' => productDelete($_GET['id']),
 
     // luồng người dùng
     'users' => UserListAll(),
@@ -29,9 +41,20 @@ match($act){
     'users-update' => UserUpdate($_GET['id']),
     'users-delete' => UserDelete($_GET['id']),
 
+    // luồng setting
+    'setting-form' => settingShowForm(),
+    'setting-save' => settingSave(),
+
+    'categories' => categoryListAll(),
+    'category-detail' => categoryShowOne($_GET['id']),
+    'category-create' => categoryCreate(),
+    'category-update' => categoryUpdate($_GET['id']),
+    'category-delete' => categoryDelete($_GET['id']),
+
+
     // đăng nhập 
     'login-admin' => LoginAdmin(),
-    'forgot-password' => ForgotPassword(),
+    'logout-admin' => LogoutAdmin(),
 };
 
 

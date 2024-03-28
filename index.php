@@ -12,14 +12,13 @@ require_once "./commons/connect-db.php";
 require_file(PATH_CONTROLLER);
 require_file(PATH_MODEL);
 
-require_once "./asets/admin/header.php";
-require_once "./asets/admin/footer.php";
+
 
 
 // điều hướng 
 $act = $_GET['act'] ?? '/';
 match($act){
-    '/' => dataUser(),
+    '/' => homeCilent(),
 };
 
 

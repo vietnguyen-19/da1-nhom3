@@ -332,7 +332,7 @@ section {
 }
 
 .page-content--bge5 {
-    background: #e5e5e5;
+    background: linear-gradient(to bottom right, #808080,#FFFFFF ); 
     height: 100vh;
 }
 
