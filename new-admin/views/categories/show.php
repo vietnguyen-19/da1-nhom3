@@ -16,7 +16,7 @@
                     <th>Dữ liệu</th>
                 </tr>
 
-                <?php foreach ($tag as $fieldName => $value) : ?>
+                <?php foreach ($category as $fieldName => $value) : ?>
                     <tr>
                         <td><?= ucfirst($fieldName) ?></td>
                         <td><?= $value ?></td>
@@ -24,7 +24,7 @@
                 <?php endforeach; ?>
             </table>
 
-            <a href="<?= BASE_URL_ADMIN ?>?act=tags" class="btn btn-danger">Back to list</a>
+            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories" class="btn btn-danger">Back to list</a>
         </div>
     </div>
 </div>

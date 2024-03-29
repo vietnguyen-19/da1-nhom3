@@ -5,7 +5,7 @@ function ProductListAll()
     $products = listAllProduct();
 
     $title = 'Danh sách Products';
-    $views = 'products/index';
+    $view = 'products/index';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -19,8 +19,8 @@ function ProductsShowOne($id)
         e404();
     }
 
-   
-    $views = 'products/show';
+
+    $view = 'products/show';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -28,7 +28,8 @@ function ProductsShowOne($id)
 function ProductsCreate()
 {
     $title      = 'Thêm mới Product';
-    $view       = 'products/create';      
+    $view       = 'products/create';   
+
 
     $categories     = listAll('categories');
     $products        = listAll('products');
@@ -42,16 +43,16 @@ function ProductsCreate()
             'price'          => $_POST['price']          ?? null,
             'sale_price'     => $_POST['sale_price']     ?? null,
             'description'    => $_POST['description']    ?? null,
-            'image'          => get_file_upload('image'),
+            'images'          => get_file_upload('images'),
             'img_thumbnail'  => get_file_upload('img_thumbnail'),
-            'quantity'       => $_POST['quantity']    ?? null,
-            'key_word'       => $_POST['key_word	']    ?? null,
-            'view'           => $_POST['view']    ?? null ,
+            'quantity'       => $_POST['quantity']    ?? 0,
+            'key_word'       => $_POST['key_word	']    ?? 'no',
+            'view'           => $_POST['view']    ?? 0,
         ];
 
-        $image = $data['image'];
+        $image = $data['images'];
         if (is_array($image)) {
-            $data['image'] = upload_file($image, 'uploads/image/');
+            $data['images'] = upload_file($image, 'uploads/image/');
         }
 
         $img_thumbnail = $data['img_thumbnail'];
@@ -78,10 +79,10 @@ function ProductsCreate()
 
             if (
                 is_array($image)
-                && !empty($data['image'])
-                && file_exists(PATH_UPLOAD . $data['image'])
+                && !empty($data['images'])
+                && file_exists(PATH_UPLOAD . $data['images'])
             ) {
-                unlink(PATH_UPLOAD . $data['image']);
+                unlink(PATH_UPLOAD . $data['images']);
             }
 
             if (
@@ -143,40 +144,110 @@ function ProductsCreate()
 
 // }
 // }
-function ProductsUpdate($id)
+function ProductUpdate($id)
 {
-    $product = showOne('products', $id);
+    $products = showOneForProduct($id);
 
-    if (empty($product)) {
+    if (empty($products)) {
+
         e404();
     }
+
+    $title      = 'Cập nhật product: ' . $products['p_name'];
+    $view       = 'products/update';
+
+    $categories     = listAll('categories');
+    $users        = listAll('users');
+    $brands           = listAll('brands');
+
+
+
     if (!empty($_POST)) {
-
         $data = [
-            "name" => $_POST['name'] ?? null,
-            "price" => $_POST['price'] ?? null,
-            "sale-price" => $_POST['sale-price'] ?? null,
-            "description" => $_POST['description'] ?? null,
-            "image" => $_POST['image'] ?? null,
-            "image-thumbnail" => $_POST['image-thumbnail'] ?? null,
-            "quantity" => $_POST['quantity'] ?? null,
-            "key-word" => $_POST['key-word'] ?? null,
-
+            'id_brand'        => $_POST['id_brand']          ?? $products['p_id_brand'],
+            'id_category'     => $_POST['id_category']  ?? $products['p_id_category'],
+            'name'            => $_POST['name']           ?? $products['p_name'],
+            'price'           => $_POST['price']          ?? $products['p_price'],
+            'sale_price'      => $_POST['sale_price']     ?? $products['p_sale_price'],
+            'description'     => $_POST['description']    ?? $products['p_description'],
+            'quantity'        => $_POST['quantity']          ?? $products['p_quantity'],
+            'key_word'        => $_POST['key_word']          ?? $products['p_key_word'],
+            'view'            => $_POST['view']           ?? $products['p_view'],
+            'update_day'      => date('Y-m-d H:i:s'),
+            'images'        => get_file_upload('images',          $products['p_images']),
+            'img_thumbnail' => get_file_upload('img_thumbnail',   $products['p_img_thumbnail'])
         ];
 
-        // validateProductsCreate($data);
+        // validatePostUpdate($id, $data);
 
-        update('products', $id, $data);
+        $images = $data['images'];
+        if (is_array($images)) {
+            $data['images'] = upload_file($images, 'uploads/image/');
+        }
+
+        $img_thumbnail = $data['img_thumbnail'];
+        if (is_array($img_thumbnail)) {
+            $data['img_thumbnail'] = upload_file($img_thumbnail, 'uploads/image/');
+        }
+
+        try {
+            $GLOBALS['conn']->beginTransaction();
+
+            update('product', $id, $data);
+
+
+
+            $GLOBALS['conn']->commit();
+        } catch (Exception $e) {
+            $GLOBALS['conn']->rollBack();
+
+            if (
+                is_array($images)
+                && !empty($data['images'])
+                && file_exists(PATH_UPLOAD . $data['images'])
+            ) {
+                unlink(PATH_UPLOAD . $data['images']);
+            }
+
+            if (
+                is_array($img_thumbnail)
+                && !empty($data['img_thumbnail'])
+                && file_exists(PATH_UPLOAD . $data['img_thumbnail'])
+            ) {
+                unlink(PATH_UPLOAD . $data['img_thumbnail']);
+            }
+
+            debug($e);
+        }
+
+        if (
+            !empty($images)
+            && !empty($products['images'])
+            && !empty($data['images'])
+            && file_exists(PATH_UPLOAD . $products['images'])
+        ) {
+            unlink(PATH_UPLOAD . $products['images']);
+        }
+
+        if (
+            !empty($imgCover)
+            && !empty($products['img_thumbnail'])
+            && !empty($data['img_thumbnail'])
+            && file_exists(PATH_UPLOAD . $products['img_thumbnail'])
+        ) {
+            unlink(PATH_UPLOAD . $products['img_thumbnail']);
+        }
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=products-update');
+        header('Location: ' . BASE_URL_ADMIN . '?act=product-update&id=' . $id);
         exit();
     }
-    $title = 'Cập nhật thông tin product';
-    $views = 'products/update';
-    require_once PATH_VIEW_NEW_ADMIN . 'master.php' . $product['name'];
+
+    require_once PATH_VIEW_NEW_ADMIN . 'master.php';
+
 }
+
 function productDelete($id)
 {
     $product = showOneForProduct($id);
@@ -188,7 +259,7 @@ function productDelete($id)
     try {
         $GLOBALS['conn']->beginTransaction();
 
-       
+
 
         delete2('products', $id);
 

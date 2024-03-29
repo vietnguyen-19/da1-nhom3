@@ -1,61 +1,62 @@
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">
-        <?= $title ?>
-
-        <a href="<?= BASE_URL_ADMIN ?>?act=category-create" class="btn btn-primary">Create</a>
-    </h1>
-
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">
-                DataTables
-            </h6>
+<div class="main-content">
+    <div class="col-md-12">
+        <!-- DATA TABLE -->
+        <h3 class="title-5 m-b-35"><?= $title ?></h3>
+        <div class="table-data__tool-right">
+            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=category-create">
+                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                    <i class="zmdi zmdi-plus"></i>Thêm mới</button>
+            </a>
         </div>
-        <div class="card-body">
 
-            <?php if (isset($_SESSION['success'])) : ?>
-                <div class="alert alert-success">
-                    <?= $_SESSION['success'] ?>
-                </div>
-                <?php unset($_SESSION['success']); ?>
-            <?php endif; ?>
-
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
-                    <tbody>
-                        <?php foreach ($categories as $category) : ?>
-                            <tr>
-                                <td><?= $category['id'] ?></td>
-                                <td><?= $category['name'] ?></td>
-                                <td>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=category-detail&id=<?= $category['id'] ?>" class="btn btn-info">Show</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=category-update&id=<?= $category['id'] ?>" class="btn btn-warning">Update</a>
-                                    <a href="<?= BASE_URL_ADMIN ?>?act=category-delete&id=<?= $category['id'] ?>" 
-                                        onclick="return confirm('Bạn có chắc chắn xóa không?')"
-                                        class="btn btn-danger">Delete</a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-
-                    </tbody>
-                </table>
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['success'] ?>
             </div>
+            <?php unset($_SESSION['success']) ?>
+        <?php endif; ?>
+
+        <div class="table-responsive table-responsive-data2">
+            <table class="table table-data2">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php foreach ($categories as $categorie) : ?>
+                        <tr class="tr-shadow">
+                            <td><?= $categorie['id'] ?></td>
+                            <td><?= $categorie['name'] ?></td>
+                            <td>
+                                <div class="table-data-feature">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=category-detail&id=<?= $categorie['id'] ?>">
+                                        <button class="item" data-toggle="tooltip" title="show">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </a>
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=category-update&id=<?= $categorie['id'] ?>">
+                                        <button class="item" data-toggle="tooltip" title="Edit">
+                                            <i class="zmdi zmdi-edit"></i>
+                                        </button>
+                                    </a>
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=category-delete&id=<?= $categorie['id'] ?>" onclick="return confirm('Bạn có chắc chắn xóa không')">
+                                        <button class="item" data-toggle="tooltip" title="Delete">
+                                            <i class="zmdi zmdi-delete"></i>
+                                        </button>
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="spacer"></tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
+        <!-- END DATA TABLE -->
     </div>
 </div>

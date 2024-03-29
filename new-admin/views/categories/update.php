@@ -40,7 +40,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="<?= BASE_URL_ADMIN ?>?act=categories" class="btn btn-danger">Back to list</a>
+                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories" class="btn btn-danger">Back to list</a>
             </form>
         </div>
     </div>

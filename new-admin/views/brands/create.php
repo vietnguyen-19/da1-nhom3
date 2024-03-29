@@ -2,10 +2,11 @@
     <div class="col-md-12">
         <!-- DATA TABLE -->
 
-        <h3 class="title-5 m-b-35">Thêm nhãn hàng</h3>
+        <h3 class="title-5 m-b-35">Thêm category</h3>
 
         <?php if (isset($_SESSION['success'])) : ?>
-            <div class="alert alert-danger">
+            <div class="alert alert-success">
+
                 <?= $_SESSION['success'] ?>
             </div>
         <?php endif; ?>
@@ -28,10 +29,8 @@
                         <label for="name" class="form-label">Name:</label>
                         <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name">
                     </div>
-                
-                </div>
-                
-              
+
+                </div> 
             </div>
 
             <button type="submit" class="btn btn-primary">Thêm</button>

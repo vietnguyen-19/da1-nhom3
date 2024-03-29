@@ -22,7 +22,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                       
+
                         <th></th>
                     </tr>
                 </thead>
@@ -32,7 +32,7 @@
                         <tr class="tr-shadow">
                             <td><?= $brand['id'] ?></td>
                             <td><?= $brand['name'] ?></td>
-                            
+
                             <td>
                                 <div class="table-data-feature">
                                     <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-detail&id=<?= $brand['id'] ?>">
