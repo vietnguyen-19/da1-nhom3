@@ -5,7 +5,7 @@ function OderListAll()
     $oders = listAll('oders');
 
     $title = 'Danh sách Oder';
-    $views = 'oders/index';
+    $view = 'oders/index';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -20,7 +20,7 @@ function OderShowOne($id)
     }
 
     $title = 'Chi tiết Oder: ';
-    $views = 'oders/show';
+    $view = 'oders/show';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -31,7 +31,7 @@ function OderUpdate($id)
     $oder = showOne('oders', $id);
 
     $title = 'Cập nhật thông tin oder';
-    $views = 'oders/update';
+    $view = 'oders/update';
     $name = 'cập nhật đơn hàng ' ;
    
 

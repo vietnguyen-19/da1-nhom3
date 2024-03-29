@@ -5,7 +5,7 @@ function UserListAll()
     $users = listAll('users');
 
     $title = 'Danh sách User';
-    $views = 'users/index';
+    $view = 'users/index';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -20,7 +20,7 @@ function UserShowOne($id)
     }
 
     $title = 'Chi tiết User: ' . $user['name'];
-    $views = 'users/show';
+    $view = 'users/show';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
@@ -28,7 +28,7 @@ function UserShowOne($id)
 function UserCreate()
 {
     $title = 'Thêm mới User';
-    $views = 'users/create';
+    $view = 'users/create';
 
     if (!empty($_POST)) {
 
@@ -90,7 +90,7 @@ function UserUpdate($id)
     $user = showOne('users', $id);
 
     $title = 'Cập nhật thông tin user';
-    $views = 'users/update';
+    $view = 'users/update';
     $name = 'cập nhật tài khoản: ' . $user['name'];
    
 

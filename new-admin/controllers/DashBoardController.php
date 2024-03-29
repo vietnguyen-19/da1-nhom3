@@ -2,7 +2,7 @@
 
 function HomeAdmin(){
     $title = 'DashBoard';
-    $views = 'DashBoard';
+    $view = 'DashBoard';
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
 

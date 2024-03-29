@@ -21,7 +21,7 @@
                             <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product">Danh sách</a>
                         </li>
                         <li>
-                            <a href="#">Loại sản phẩm</a>
+                            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories">Loại sản phẩm</a>
                         </li>
                         <li>
                             <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands">Nhãn hàng</a>
