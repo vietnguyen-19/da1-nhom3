@@ -28,12 +28,11 @@ function ProductsShowOne($id)
 function ProductsCreate()
 {
     $title      = 'Thêm mới Product';
-    $view       = 'products/create';
-    $script     = 'datatable';
-    $script2    = 'posts/script';
+    $view       = 'products/create';   
+
 
     $categories     = listAll('categories');
-    $users        = listAll('users');
+    $products        = listAll('products');
     $brands           = listAll('brands');
 
     if (!empty($_POST)) {
@@ -150,13 +149,12 @@ function ProductUpdate($id)
     $products = showOneForProduct($id);
 
     if (empty($products)) {
+
         e404();
     }
 
     $title      = 'Cập nhật product: ' . $products['p_name'];
     $view       = 'products/update';
-    $script     = 'datatable';
-    $script2    = 'posts/script';
 
     $categories     = listAll('categories');
     $users        = listAll('users');
@@ -247,6 +245,7 @@ function ProductUpdate($id)
     }
 
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
+
 }
 
 function productDelete($id)

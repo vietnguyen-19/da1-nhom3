@@ -6,6 +6,7 @@
 
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
+
                 <?= $_SESSION['success'] ?>
             </div>
         <?php endif; ?>
@@ -29,11 +30,11 @@
                         <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name">
                     </div>
 
-                </div>
+                </div> 
             </div>
 
             <button type="submit" class="btn btn-primary">Thêm</button>
-            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Danh sách</a>
+            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands" class="btn btn-danger">Danh sách</a>
         </form>
         <!-- END DATA TABLE -->
     </div>

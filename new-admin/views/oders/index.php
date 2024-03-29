@@ -3,49 +3,64 @@
         <!-- DATA TABLE -->
         <h3 class="title-5 m-b-35"><?= $title ?></h3>
         <div class="table-data__tool-right">
-            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-create">
-                <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                    <i class="zmdi zmdi-plus"></i>Thêm mới</button>
-            </a>
+         
         </div>
-
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
             </div>
             <?php unset($_SESSION['success']) ?>
         <?php endif; ?>
-
-        <div class="table-responsive table-responsive-data2">
-            <table class="table table-data2">
+        <div class="table-responsive ">
+            <table class="table table-success table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
+                        
+                        <th>Firt Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Note</th>
 
+                        <th>Paymethod</th>
+                        <th>Total price</th>
                         <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <?php foreach ($brands as $brand) : ?>
+                    <?php foreach ($oders as $oder) : ?>
                         <tr class="tr-shadow">
-                            <td><?= $brand['id'] ?></td>
-                            <td><?= $brand['name'] ?></td>
+                            <td><?= $oder['id'] ?></td>
+                            
+                            <td><?= $oder['first_name'] ?></td>
+                            <td><?= $oder['last_name'] ?></td>
+                            <td><?= $oder['address'] ?></td>
+                            <td>
+                                <span class="block-email"><?= $oder['email'] ?></span>
+                            </td>
+                            <td><?= $oder['phone'] ?></td>
+                            <td><?= $oder['note'] ?></td>
+                            <td><?= $oder['paymethod'] ?'cash' :'electronic wallet' ?></td>
+                            <td><?= $oder['total_price'] ?></td>
 
+
+                         
                             <td>
                                 <div class="table-data-feature">
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-detail&id=<?= $brand['id'] ?>">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-detail&id=<?= $oder['id'] ?>">
                                         <button class="item" data-toggle="tooltip" title="show">
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-update&id=<?= $brand['id'] ?>">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-update&id=<?= $oder['id'] ?>">
                                         <button class="item" data-toggle="tooltip" title="Edit">
                                             <i class="zmdi zmdi-edit"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-delete&id=<?= $brand['id'] ?>" onclick="return confirm('Bạn có chắc chắn xóa không')">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-delete&id=<?= $oder['id'] ?>" onclick="return confirm('Xác nhận hủy đơn hàng????')">
                                         <button class="item" data-toggle="tooltip" title="Delete">
                                             <i class="zmdi zmdi-delete"></i>
                                         </button>

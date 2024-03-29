@@ -45,6 +45,7 @@ match ($act) {
     'setting-form' => settingShowForm(),
     'setting-save' => settingSave(),
 
+    // luồng loại hàng
     'categories' => categoryListAll(),
     'category-detail' => categoryShowOne($_GET['id']),
     'category-create' => categoryCreate(),
@@ -61,6 +62,17 @@ match ($act) {
     // đăng nhập 
     'login-admin' => LoginAdmin(),
     'logout-admin' => LogoutAdmin(),
+    // luồng đơn hàng
+    'oders' => OderListAll(),
+    'oders-detail' => OderShowOne($_GET['id']),
+    'oders-update' => OderUpdate($_GET['id']),
+    'oders-delete' => OderDelete($_GET['id']),
+    // luồng nhãn hàng
+    'brands' => BrandListAll(),
+    'brands-detail' => BrandShowOne($_GET['id']),
+    'brands-create' => BrandCreate(),
+    'brands-update' => BrandUpdate($_GET['id']),
+    'brands-delete' => BrandDelete($_GET['id']),
 };
 
 

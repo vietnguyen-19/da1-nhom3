@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800"><?= $title ?></h1>
@@ -43,5 +44,5 @@
                 <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories" class="btn btn-danger">Back to list</a>
             </form>
         </div>
+
     </div>
-</div>

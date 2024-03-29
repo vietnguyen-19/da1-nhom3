@@ -24,7 +24,7 @@
                             <a href="#">Loại sản phẩm</a>
                         </li>
                         <li>
-                            <a href="#">Nhãn hàng</a>
+                            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands">Nhãn hàng</a>
                         </li>
                     </ul>
                 </li>
@@ -33,7 +33,7 @@
                         <i class="far fa-user"></i>Tài khoản</a>
                 </li>
                 <li>
-                    <a href="#">
+                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders">
                         <i class="far fa-check-square"></i>Đơn hàng</a>
                 </li>
                 <li>
