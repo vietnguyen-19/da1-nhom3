@@ -3,7 +3,7 @@
 function settingShowForm()
 {
     $title = 'Danh sách Setting';
-    $views = 'settings/form';
+    $view = 'settings/form';
 
     $settings = settingPluckKeyValue();
 

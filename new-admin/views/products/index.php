@@ -18,8 +18,6 @@
                         <th>Price</th>
                         <th>Sale_price</th>
                         <th>Description</th>
-                        <th>Image</th>
-                        <th>Image thumbnail</th>
                         <th>Quantity</th>
                         <th>Key_word</th>
                         <th>View</th>
@@ -43,8 +41,6 @@
                             <td>
                                 <span ><?= $product['p_description'] ?></span>
                             </td>
-                            <td><?= $product['p_pimage'] ?></td>
-                            <td><?= $product['p_img_thumbnail'] ?></td>
                             <td><?= $product['p_quantity'] ?></td>
                             <td><?= $product['p_key_word'] ?></td>
                             <td><?= $product['p_view'] ?></td>

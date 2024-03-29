@@ -67,12 +67,7 @@ match ($act) {
     'oders-detail' => OderShowOne($_GET['id']),
     'oders-update' => OderUpdate($_GET['id']),
     'oders-delete' => OderDelete($_GET['id']),
-    // luồng nhãn hàng
-    'brands' => BrandListAll(),
-    'brands-detail' => BrandShowOne($_GET['id']),
-    'brands-create' => BrandCreate(),
-    'brands-update' => BrandUpdate($_GET['id']),
-    'brands-delete' => BrandDelete($_GET['id']),
+    
 };
 
 

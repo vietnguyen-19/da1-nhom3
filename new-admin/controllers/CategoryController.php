@@ -4,8 +4,6 @@ function categoryListAll()
 {
     $title = 'Danh sách category';
     $view = 'categories/index';
-    $script = 'datatable';
-    $script2 = 'categories/script';
     $style = 'datatable';
     
     $categories = listAll('categories');
@@ -70,7 +68,7 @@ function validateCategoryCreate($data) {
         $_SESSION['errors'] = $errors;
         $_SESSION['data'] = $data;
 
-        header('Location: ' . BASE_URL_ADMIN . '?act=category-create');
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=category-create');
         exit();
     }
 }

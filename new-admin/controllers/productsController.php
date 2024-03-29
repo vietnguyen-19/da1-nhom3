@@ -240,7 +240,7 @@ function ProductUpdate($id)
 
         $_SESSION['success'] = 'Thao tác thành công!';
 
-        header('Location: ' . BASE_URL_ADMIN . '?act=product-update&id=' . $id);
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-update&id=' . $id);
         exit();
     }
 

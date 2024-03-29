@@ -12,7 +12,7 @@
             <?php unset($_SESSION['success']) ?>
         <?php endif; ?>
         <div class="table-responsive ">
-            <table class="table table-success table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>

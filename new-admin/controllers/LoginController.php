@@ -39,6 +39,6 @@ function LogoutAdmin()
     if(!empty($_SESSION['admin'])){
         session_destroy();
     }
-    header('Location: ' . BASE_URL_NEW_ADMIN);
+    header('Location: ' . BASE_URL . '?act=/');
     exit();
 }
