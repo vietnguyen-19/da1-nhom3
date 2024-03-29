@@ -173,8 +173,8 @@ function ProductUpdate($id)
             'quantity'        => $_POST['quantity']          ?? $products['p_quantity'],
             'key_word'        => $_POST['key_word']          ?? $products['p_key_word'],
             'view'            => $_POST['view']           ?? $products['p_view'],
-            'update_day'      => date('Y-m-d H:i:s'),
-            'images'        => get_file_upload('images',          $products['p_images']),
+           
+            'images'        => get_file_upload('images',          $products['p_pimage']),
             'img_thumbnail' => get_file_upload('img_thumbnail',   $products['p_img_thumbnail'])
         ];
 
@@ -193,7 +193,7 @@ function ProductUpdate($id)
         try {
             $GLOBALS['conn']->beginTransaction();
 
-            update('product', $id, $data);
+            update('products', $id, $data);
 
 
 
