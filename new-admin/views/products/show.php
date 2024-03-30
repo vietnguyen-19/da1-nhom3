@@ -19,7 +19,11 @@
                         case 'p_sale_price':
                         case 'p_description':
                         case 'p_pimage':
+                            echo '<img src="' . BASE_URL . $value . '" alt="" width="100px">';
+                            break;
                         case 'p_img_thumbnail':
+                            echo '<img src="' . BASE_URL . $value . '" alt="" width="100px">';
+                            break;
                         case 'p_quantity':
                         case 'p_key_word':
                         case 'p_view':
