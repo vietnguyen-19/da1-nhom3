@@ -21,24 +21,8 @@
                                             <li><a href="checkout.html">Checkout </a></li>
                                             <li><a href="my-account.html">My Account </a></li>
                                             <li><a href="cart.html">Shopping Cart</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
                                         </ul>
                                     </li>
-                                    <li class="language"><a href="#"><img src="./asets/client/img/logo/language.png" alt="">en-gb<i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="dropdown_language">
-                                            <li><a href="#"><img src="./asets/client/img/logo/language.png" alt=""> English</a></li>
-                                            <li><a href="#"><img src="./asets/client/img/logo/language2.png" alt=""> Germany</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="currency"><a href="#">$ USD<i class="ion-ios-arrow-down"></i></a>
-                                        <ul class="dropdown_currency">
-                                            <li><a href="#">EUR – Euro</a></li>
-                                            <li><a href="#">GBP – British Pound</a></li>
-                                            <li><a href="#">INR – India Rupee</a></li>
-                                        </ul>
-                                    </li>
-
-
                                 </ul>
                             </div>
                         </div>
