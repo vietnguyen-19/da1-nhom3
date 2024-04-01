@@ -4682,6 +4682,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .brand_container .single_brand img {
   width: inherit;
   margin: 0 auto;
+  height: fit-content;
+  
 }
 
 .brand_container {
