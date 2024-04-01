@@ -2,6 +2,7 @@
     <div class="col-md-12">
         <!-- DATA TABLE -->
         <h3 class="title-5 m-b-35"> <?= $name ?> </h3>
+        
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
@@ -10,7 +11,7 @@
             
         <?php endif; ?>
 
-        <?php if (isset($_SESSION['success'])) : ?>
+        <?php if (isset($_SESSION['errors'])) : ?>
             <div class="alert alert-danger">
                 <ul>
                     <?php foreach ($_SESSION['errors'] as $error) : ?>

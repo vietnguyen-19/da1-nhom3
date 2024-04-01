@@ -6,13 +6,13 @@
 
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
-
                 <?= $_SESSION['success'] ?>
             </div>
+            <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['errors'])) : ?>
-            <div class="alert alert-success">
+            <div class="alert alert-danger">
                 <ul>
                     <?php foreach ($_SESSION['errors'] as $error) : ?>
                         <li> <?= $error ?> </li>
@@ -22,13 +22,17 @@
             <?php unset($_SESSION['errors']) ?>
         <?php endif; ?>
 
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
                         <label for="name" class="form-label">Name:</label>
                         <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name">
                     </div>
+                    <div class="mb-3 mt-3">
+                            <label for="name" class="form-label">Hình ảnh:</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
 
                 </div> 
             </div>

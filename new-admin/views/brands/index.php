@@ -21,18 +21,18 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
-
+                        <th>Tên nhãn hàng</th>
+                        <th>Hình ảnh</th>
                         <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
                     <?php foreach ($brands as $brand) : ?>
-                        <tr class="tr-shadow">
+                        <tr class="tr-shadow">  
                             <td><?= $brand['id'] ?></td>
                             <td><?= $brand['name'] ?></td>
-
+                            <td><img src="<?= BASE_URL . $brand['image'] ?>" width= "200px"></td>
                             <td>
                                 <div class="table-data-feature">
                                     <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands-detail&id=<?= $brand['id'] ?>">
