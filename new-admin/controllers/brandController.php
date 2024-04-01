@@ -36,7 +36,7 @@ function brandsCreate()
         
         $data = [
             "name" => $_POST['name'] ?? null,
-            ];
+        ];
 
         validateCategoryCreate($data);
         
@@ -67,7 +67,7 @@ function brandsUpdate($id)
     if (!empty($_POST)) {
         $data = [
             "name" => $_POST['name'] ?? $brands['name'],
-                    ];
+        ];
 
         validateCategoryUpdate($id, $data);
          
