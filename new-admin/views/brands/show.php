@@ -25,11 +25,10 @@
                 <?php endforeach; ?>
             </table>
 
-            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories" class="btn btn-danger">Back to list</a>
+            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=brands" class="btn btn-danger">Back to list</a>
         </div>
     </div>
 </div>
-=======
 <div class="main-content">
     <div class="col-md-12">
         <!-- DATA TABLE -->

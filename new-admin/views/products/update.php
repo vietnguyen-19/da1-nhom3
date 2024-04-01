@@ -42,7 +42,7 @@
                 <div class="mb-3 mt-3">
                     <label for="images" class="form-label">Images:</label>
                     <input type="file" class="form-control" id="images" name="images">
-                    <img src="<?= BASE_URL . $products['p_images'] ?>" alt="" width="100px">
+                    <img src="<?= BASE_URL . $products['p_pimage'] ?>" alt="" width="100px">
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="img_thumbnail" class="form-label">Img Ihumbnail:</label>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Thêm</button>
+        <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product" class="btn btn-danger">Danh sách</a>
     </form>
 

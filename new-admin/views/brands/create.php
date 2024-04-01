@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <!-- DATA TABLE -->
 
-        <h3 class="title-5 m-b-35">Thêm category</h3>
+        <h3 class="title-5 m-b-35">Thêm Brand</h3>
 
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
