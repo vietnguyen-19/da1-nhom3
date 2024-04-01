@@ -3278,9 +3278,14 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .product_thumb {
+  width: 100%;
   position: relative;
 }
-.product_thumb a.secondary_img {
+.product_thumb img{
+  width: 100%;
+  height: 200px;
+}
+.product_thumb a.secondary_img{
   position: absolute;
   top: 0;
   left: 0;
