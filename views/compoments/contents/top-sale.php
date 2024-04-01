@@ -9,7 +9,7 @@
                     <?php foreach ($products as $product) : ?>
                         <div class="single_product">
                             <div class="product_name">
-                                <h3><a href="product-details.html">JBL Flip 3 Splasroof Portable Bluetooth 2</a></h3>
+                                <h3><a href="product-details.html"><?= $product['p_name'] ?></a></h3>
                                 <p class="manufacture_product"><a href="#">Accessories</a></p>
                             </div>
                             <div class="product_thumb">
@@ -39,15 +39,14 @@
                                 </div>
                                 <div class="product_footer d-flex align-items-center">
                                     <div class="price_box">
-                                        <span class="regular_price">$180.00</span>
+                                        <span class="regular_price"><?= $product['p_price'] ?></span>
                                     </div>
                                     <div class="add_to_cart">
                                         <a href="cart.html" title="add to cart"><span class="lnr lnr-cart"></span></a>
                                     </div>
                                 </div>
                                 <div class="quantity_progress">
-                                    <p class="product_sold">Sold: <span>199</span></p>
-                                    <p class="product_available">Availabe: <span>9800</span></p>
+                                    <p class="product_sold">Quantity: <span><?= $product['p_quantity'] ?></span></p>
                                 </div>
                                 <div class="bar_percent">
 

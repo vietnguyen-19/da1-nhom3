@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // require các file trong commons 
 
 require_once "./commons/env.php";
