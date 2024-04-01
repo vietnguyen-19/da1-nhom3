@@ -4,7 +4,7 @@ function ProductListAll()
 
     $products = listAllProduct();
 
-    $title = 'Danh sách Products';
+    $title = 'Danh sách sản phẩm';
     $view = 'products/index';
 
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
@@ -14,11 +14,26 @@ function ProductsShowOne($id)
 {
 
     $products = showOneForProduct($id);
-
     if (empty($products)) {
         e404();
     }
 
+    $fileNameShow = [
+        'p_name' => 'Tên sản phẩm',
+        'p_price' => 'Giá',
+        'p_sale_price' => 'Giá sale',
+        'p_description' => 'Mô tả',
+        'p_pimage' => 'Hình ảnh',
+        'p_img_thumbnail' => 'Biến thể',
+        'p_quantity' => 'Số lượng',
+        'p_key_word' => 'Từ khóa',
+        'p_view' => 'Lượt xem',
+        'p_id' => 'Mã sản phẩm ',
+        'p_id_brand' => 'Mã nhãn hàng',
+        'p_id_category' => 'Mã loại',
+        'c_name' => 'Tên loại',
+        'au_name' => 'Tên nhãn hàng',
+    ];
 
     $view = 'products/show';
 
@@ -27,8 +42,8 @@ function ProductsShowOne($id)
 
 function ProductsCreate()
 {
-    $title      = 'Thêm mới Product';
-    $view       = 'products/create';   
+    $title      = 'Thêm mới sản phẩm';
+    $view       = 'products/create';
 
 
     $categories     = listAll('categories');
@@ -60,18 +75,11 @@ function ProductsCreate()
             $data['img_thumbnail'] = upload_file($img_thumbnail, 'uploads/image/');
         }
 
+        validateProductsCreate($data);
         try {
             $GLOBALS['conn']->beginTransaction();
 
             insert_get_last_id('products', $data);
-            // if (!empty($_POST['brands'])) {
-            //     foreach ($_POST['brands'] as $tagID) {
-            //         insert('pro_brands', [
-            //             'pro_id' => $productsID,
-            //             'brands' => $tagID,
-            //         ]);
-            //     }
-            // }
 
             $GLOBALS['conn']->commit();
         } catch (Exception $e) {
@@ -104,46 +112,34 @@ function ProductsCreate()
 
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
-// function validateProductsCreate($data)
-// {
-//     $errors = [];
+function validateProductsCreate($data)
+{
+    $errors = [];
 
-//     if (empty($data['name'])) {
-//         $errors[] = 'Trường name là bắt buộc';
-//     } else if (strlen($data['name']) > 50) {
-//         $errors[] = 'Trường name dài tối đa 50 ký tự';
-//     }
+    if (empty($data['name'])) {
+        $errors[] = 'Trường name là bắt buộc';
+    } 
+    if ($data['id_brand'] == 0) {
+        $errors[] = 'Bạn chưa chọn nhãn hàng';
+    } 
+    if ($data['id_category'] == 0) {
+        $errors[] = 'Bạn chưa chọn loại sản phẩm';
+    } 
+    if (empty($data['price'])) {
+        $errors[] = 'Giá sản phẩm là bắt buộc';
+    } 
+    if (empty($data['images'])) {
+        $errors[] = 'không được để trống hình ảnh';
+    }
+    
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        $_SESSION['data'] = $data;
 
-//     if (empty($data['email'])) {
-//         $errors[] = 'Trường email là bắt buộc';
-//     } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-//         $errors[] = 'Trường email không đúng định dạng';
-//     } else if (!checkUniqueEmail('products', $data['email'])) {
-//         $errors[] = 'Email đã được sử dụng';
-//     }
-
-//     if (empty($data['password'])) {
-//         $errors[] = 'Trường password là bắt buộc';
-//     } else if (strlen($data['password']) < 8 || strlen($data['password']) > 20) {
-//         $errors[] = 'Trường password đồ dài nhỏ nhất là 8, lớn nhất là 20';
-//     }
-
-
-//     if ($data['type'] === null) {
-//         $errors[] = 'Trường type là bắt buộc';
-//     } else if (!in_array($data['type'], [0, 1])) {
-//         $errors[] = 'Trường type phải là 0 or 1';
-//     }
-
-//     if (!empty($errors)) {
-//         $_SESSION['errors'] = $errors;
-//         $_SESSION['data'] = $data;
-
-//         header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-create');
-//         exit();
-
-// }
-// }
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-create');
+        exit();
+    }
+}
 function ProductUpdate($id)
 {
     $products = showOneForProduct($id);
@@ -153,7 +149,7 @@ function ProductUpdate($id)
         e404();
     }
 
-    $title      = 'Cập nhật product: ' . $products['p_name'];
+    $title      = 'Cập nhật sản phẩm: ' . $products['p_name'];
     $view       = 'products/update';
 
     $categories     = listAll('categories');
@@ -173,12 +169,12 @@ function ProductUpdate($id)
             'quantity'        => $_POST['quantity']          ?? $products['p_quantity'],
             'key_word'        => $_POST['key_word']          ?? $products['p_key_word'],
             'view'            => $_POST['view']           ?? $products['p_view'],
-           
+
             'images'        => get_file_upload('images',          $products['p_pimage']),
             'img_thumbnail' => get_file_upload('img_thumbnail',   $products['p_img_thumbnail'])
         ];
 
-        // validatePostUpdate($id, $data);
+        validateProductUpdate($id, $data);
 
         $images = $data['images'];
         if (is_array($images)) {
@@ -245,7 +241,31 @@ function ProductUpdate($id)
     }
 
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
+}
 
+function validateProductUpdate($id, $data){
+    $errors = [];
+
+    if (empty($data['name'])) {
+        $errors[] = 'Trường name là bắt buộc';
+    } 
+    if ($data['id_brand'] == 0) {
+        $errors[] = 'Bạn chưa chọn nhãn hàng';
+    } 
+    if ($data['id_category'] == 0) {
+        $errors[] = 'Bạn chưa chọn loại sản phẩm';
+    } 
+    if (empty($data['price'])) {
+        $errors[] = 'Giá sản phẩm là bắt buộc';
+    } 
+    
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        $_SESSION['data'] = $data;
+
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=product-update&id=' . $id);
+        exit();
+    }
 }
 
 function productDelete($id)

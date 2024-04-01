@@ -11,7 +11,7 @@
             
         <?php endif; ?>
 
-        <?php if (isset($_SESSION['success'])) : ?>
+        <?php if (isset($_SESSION['errors'])) : ?>
             <div class="alert alert-danger">
                 <ul>
                     <?php foreach ($_SESSION['errors'] as $error) : ?>

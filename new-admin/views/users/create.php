@@ -8,10 +8,11 @@
             <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
             </div>
+            <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['errors'])) : ?>
-            <div class="alert alert-success">
+            <div class="alert alert-danger">
                 <ul>
                     <?php foreach ($_SESSION['errors'] as $error) : ?>
                         <li> <?= $error ?> </li>

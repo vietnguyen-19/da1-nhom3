@@ -21,6 +21,12 @@ function brandsShowOne($id)
         e404();
     }
 
+    $fileNameShow=[
+        'id' => 'mã nhãn hàng',
+        'name' => 'tên nhãn hàng',
+        'image' => 'hình ảnh',
+    ];
+
     $title = 'Chi tiết brands: ' . $brands['name'];
     $view = 'brands/show';
 
@@ -35,10 +41,16 @@ function brandsCreate()
     if (!empty($_POST)) {
         
         $data = [
-            "name" => $_POST['name'] ?? null,
+            'name' => $_POST['name'] ?? null,
+            'image'          => get_file_upload('image'),
         ];
 
-        validateCategoryCreate($data);
+        $image = $data['image'];
+        if (is_array($image)) {
+            $data['image'] = upload_file($image, 'uploads/image/');
+        }
+
+        validateBrandCreate($data);
         
         insert('brands', $data);
 
@@ -51,7 +63,24 @@ function brandsCreate()
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
+function validateBrandCreate($data){
+    $errors = [];
+    
+    if (empty($data['name'])) {
+        $errors[] = 'Trường name là bắt buộc';
+    }
+    if (empty($data['image'])) {
+        $errors[] = 'không được để trống hình ảnh';
+    }
+    
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        $_SESSION['data'] = $data;
 
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=brands-create');
+        exit();
+    }
+}
 
 function brandsUpdate($id)
 {
@@ -67,9 +96,10 @@ function brandsUpdate($id)
     if (!empty($_POST)) {
         $data = [
             "name" => $_POST['name'] ?? $brands['name'],
+            'image'        => get_file_upload('image',          $brands['image']),
         ];
 
-        validateCategoryUpdate($id, $data);
+        validateBrandUpdate($id,$data);
          
         update('brands', $id, $data);
 
@@ -82,7 +112,21 @@ function brandsUpdate($id)
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
 }
 
+function validateBrandUpdate($id,$data){
+    $errors = [];
+    
+    if (empty($data['name'])) {
+        $errors[] = 'Trường name là bắt buộc';
+    }
+    
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        $_SESSION['data'] = $data;
 
+        header('Location: ' . BASE_URL_NEW_ADMIN . '?act=brands-update&id='. $id);
+        exit();
+    }
+}
 
 function brandsDelete($id)
 {

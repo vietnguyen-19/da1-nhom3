@@ -1,27 +1,35 @@
 <div class="main-content">
     <div class="col-md-12">
         <!-- DATA TABLE -->
-        <h3 class="title-5 m-b-35"><?= $title?></h3>
+        <h3 class="title-5 m-b-35"><?= $title ?></h3>
         <div class="table-data__tool-right">
             <a href="<?= BASE_URL_NEW_ADMIN ?>?act=product-create">
                 <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                     <i class="zmdi zmdi-plus"></i>Thêm mới</button>
             </a>
         </div>
+        
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="alert alert-success">
+                <?= $_SESSION['success'] ?>
+            </div>
+            <?php unset($_SESSION['success']); ?>
+        <?php endif; ?>
+
+
         <div class="table-responsive table-responsive-data2">
             <table class="table table-data2">
                 <thead>
                     <tr>
                         <th> </th>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Sale_price</th>
-                        <th>Description</th>
-                        <th>Images</th>
-                        <th>Quantity</th>
-                        <th>Key_word</th>
-                        <th>View</th>
+                        <th>Mã SP</th>
+                        <th>Tên </th>
+                        <th>Giá</th>
+                        <th>Giá sale</th>
+                        <th>Mô tả</th>
+                        <th>Hình ảnh</th>
+                        <th>Từ khóa</th>
+                        <th>lượt xem</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -40,13 +48,13 @@
                             <td><?= $product['p_price'] ?></td>
                             <td><?= $product['p_sale_price'] ?></td>
                             <td>
-                                <span ><?= $product['p_description'] ?></span>
+                                <span><?= $product['p_description'] ?></span>
                             </td>
                             <td><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></td>
                             <td><?= $product['p_quantity'] ?></td>
                             <td><?= $product['p_key_word'] ?></td>
                             <td><?= $product['p_view'] ?></td>
-                          
+
 
                             <td>
                                 <div class="table-data-feature">
