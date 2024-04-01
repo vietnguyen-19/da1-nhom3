@@ -118,6 +118,9 @@ function validateBrandUpdate($id,$data){
     if (empty($data['name'])) {
         $errors[] = 'Trường name là bắt buộc';
     }
+    if (empty($data['image'])) {
+        $errors[] = 'không được để trống hình ảnh';
+    }
     
     if (!empty($errors)) {
         $_SESSION['errors'] = $errors;
