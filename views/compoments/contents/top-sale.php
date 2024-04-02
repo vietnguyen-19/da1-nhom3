@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-12">
                 <div class="section_title">
-                    <h2><span> <strong>Top</strong>Sale</span></h2>
+                    <h2><span> Sản phẩm <strong>Bán chạy</strong></span></h2>
                 </div>
                 <div class="product_carousel product_column4 owl-carousel">
                     <?php foreach ($products as $product) : ?>
                         <div class="single_product">
                             <div class="product_name">
                                 <h3><a href="product-details.html"><?= $product['p_name'] ?></a></h3>
-                                <p class="manufacture_product"><a href="#">Accessories</a></p>
+                                <!-- <p class="manufacture_product"><a href="#">Accessories</a></p> -->
                             </div>
                             <div class="product_thumb">
                                 <a class="primary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></a>
@@ -21,9 +21,7 @@
 
                                 <div class="action_links">
                                     <ul>
-                                        <li class="quick_button"><a href="#" data-bs-toggle="modal" data-bs-target="#modal_box" title="quick view"> <span class="lnr lnr-magnifier"></span></a></li>
                                         <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
-                                        <li class="compare"><a href="compare.html" title="compare"><span class="lnr lnr-sync"></span></a></li>
                                     </ul>
                                 </div>
                             </div>

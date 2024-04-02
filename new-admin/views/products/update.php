@@ -5,12 +5,12 @@
         <h3 class="title-5 m-b-35">
             <?= $title ?>
         </h3>
-        
+
         <?php if (isset($_SESSION['success'])) : ?>
             <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
             </div>
-            <?php unset($_SESSION['success']) ?>     
+            <?php unset($_SESSION['success']) ?>
         <?php endif; ?>
 
         <?php if (isset($_SESSION['errors'])) : ?>
@@ -31,7 +31,7 @@
                     <div class="mb-3 mt-3">
                         <label for="id_category" class="form-label">Loại sản phẩm:</label>
                         <select class="form-control" id="id_category" name="id_category">
-                        <option value="0" disabled selected>Chọn loại sản phẩm</option>
+                            <option value="0" disabled selected>Chọn loại sản phẩm</option>
                             <?php foreach ($categories as $category) : ?>
                                 <option <?= ($products['p_id_category'] == $category['id']) ? 'selected' : null ?> value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                             <?php endforeach; ?>
@@ -40,7 +40,7 @@
                     <div class="mb-3 mt-3">
                         <label for="id_brand" class="form-label">Nhãn hàng:</label>
                         <select class="form-control" id="id_brand" name="id_brand">
-                        <option value="0" disabled selected>Chọn nhãn hàng</option>
+                            <option value="0" disabled selected>Chọn nhãn hàng</option>
                             <?php foreach ($brands as $brand) : ?>
                                 <option <?= ($products['p_id_brand'] == $brand['id']) ? 'selected' : null ?> value="<?= $brand['id'] ?>"><?= $brand['name'] ?></option>
                             <?php endforeach; ?>
@@ -75,8 +75,23 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
+                        <label for="sale_price" class="form-label">Từ khóa:</label>
+                        <input type="text" class="form-control" id="key_word" value="<?= $products['p_key_word'] ?>" placeholder="Enter key_word" name="key_word">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="view" class="form-label">Lượt xem:</label>
+                        <input type="number" class="form-control" id="view" value="<?= $products['p_view'] ?>" placeholder="Enter view" name="view">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="view" class="form-label">Số lượng:</label>
+                        <input type="number" class="form-control" id="view" value="<?= $products['p_quantity'] ?>" placeholder="Enter quantity" name="quantity">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
                         <label for="description" class="form-label">Mô tả sản phẩm:</label>
-                        <textarea id="description" value="<?= $products['p_description'] ?>" name="description"></textarea>
+                        <br>
+                        <textarea id="description" name="description" style="border: solid 1px black;"><?= $products['p_description'] ?></textarea>
 
                     </div>
                 </div>

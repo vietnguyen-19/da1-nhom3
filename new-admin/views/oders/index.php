@@ -15,35 +15,27 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        
-                        <th>Firt Name</th>
-                        <th>Last Name</th>
-                        <th>Address</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Note</th>
-
-                        <th>Paymethod</th>
-                        <th>Total price</th>
+                        <th>Mã </th>
+                        <th>Họ tên khách hàng</th>
+                        <th>Địa chỉ</th>
+                        <th>Ghi chú</th>
+                        <th>Thanh toán</th>
+                        <th>Tổng tiền</th>
                         <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <?php foreach ($oders as $oder) : ?>
+                    <?php foreach ($oders as $oder) : 
+                            $name = $oder['first_name']. ' ' . $oder['last_name'];
+                        ?>
                         <tr class="tr-shadow">
                             <td><?= $oder['id'] ?></td>
                             
-                            <td><?= $oder['first_name'] ?></td>
-                            <td><?= $oder['last_name'] ?></td>
+                            <td><?= $name ?></td>
                             <td><?= $oder['address'] ?></td>
-                            <td>
-                                <span class="block-email"><?= $oder['email'] ?></span>
-                            </td>
-                            <td><?= $oder['phone'] ?></td>
                             <td><?= $oder['note'] ?></td>
-                            <td><?= $oder['paymethod'] ?'cash' :'electronic wallet' ?></td>
+                            <td><?= $oder['paymethod'] ?></td>
                             <td><?= $oder['total_price'] ?></td>
 
 

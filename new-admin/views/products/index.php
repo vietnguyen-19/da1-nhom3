@@ -21,13 +21,13 @@
             <table class="table table-data2">
                 <thead>
                     <tr>
-                        <th> </th>
                         <th>Mã SP</th>
                         <th>Tên </th>
                         <th>Giá</th>
                         <th>Giá sale</th>
                         <th>Mô tả</th>
                         <th>Hình ảnh</th>
+                        <th>số lượng</th>
                         <th>Từ khóa</th>
                         <th>lượt xem</th>
                         <th></th>
@@ -37,12 +37,6 @@
                 <tbody>
                     <?php foreach ($products as $product) : ?>
                         <tr class="tr-shadow">
-                            <td>
-                                <label class="au-checkbox">
-                                    <input type="checkbox">
-                                    <span class="au-checkmark"></span>
-                                </label>
-                            </td>
                             <td><?= $product['p_id'] ?></td>
                             <td><?= $product['p_name'] ?></td>
                             <td><?= $product['p_price'] ?></td>

@@ -77,6 +77,20 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
+                        <label for="sale_price" class="form-label">Từ khóa:</label>
+                        <input type="text" class="form-control" id="key_word" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['key_word'] : null ?>" placeholder="Enter key_word" name="key_word">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="view" class="form-label">Lượt xem:</label>
+                        <input type="number" class="form-control" id="view" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['view'] : null ?>" placeholder="Enter view" name="view">
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="view" class="form-label">Số lượng:</label>
+                        <input type="number" class="form-control" id="view" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['view'] : null ?>" placeholder="Enter quantity" name="quantity">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3 mt-3">
                         <label for="description" class="form-label">Mô tả sản phẩm:</label>
                         <br>
                         <textarea id="description" name="description" style="border: solid 1px black;"><?= isset($_SESSION['data']) ? $_SESSION['data']['description'] : null ?></textarea>
