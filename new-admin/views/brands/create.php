@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3 mt-3">
-                        <label for="name" class="form-label">Name:</label>
+                        <label for="name" class="form-label">Tên nhãn hàng:</label>
                         <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name">
                     </div>
                     <div class="mb-3 mt-3">

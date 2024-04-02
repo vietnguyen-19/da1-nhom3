@@ -63,10 +63,10 @@ match ($act) {
     'login-admin' => LoginAdmin(),
     'logout-admin' => LogoutAdmin(),
     // luồng đơn hàng
-    'oders' => OderListAll(),
-    'oders-detail' => OderShowOne($_GET['id']),
-    'oders-update' => OderUpdate($_GET['id']),
-    'oders-delete' => OderDelete($_GET['id']),
+    'orders' => OrderListAll(),
+    'orders-detail' => OrderShowOne($_GET['id']),
+    'orders-update' => updateOrderStatus($_GET['id']),
+
     
 };
 

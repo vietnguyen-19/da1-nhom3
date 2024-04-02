@@ -49,8 +49,8 @@
                         <div class="statistic__item statistic__item--red">
                             <h2 class="number">
                                 <?php
-                                    $oders = listAll('oders');
-                                    echo count($oders);
+                                    $orders = listAll('orders');
+                                    echo count($orders);
                                 ?>
                             </h2>
                             <span class="desc">Đơn hàng</span>

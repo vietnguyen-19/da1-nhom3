@@ -33,7 +33,7 @@
                         <i class="far fa-user"></i>Tài khoản</a>
                 </li>
                 <li>
-                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders">
+                <a href="<?= BASE_URL_NEW_ADMIN ?>?act=orders">
                         <i class="far fa-check-square"></i>Đơn hàng</a>
                 </li>
                 <li>
