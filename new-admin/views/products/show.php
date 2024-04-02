@@ -18,10 +18,10 @@
                         <td>
                             <?php
                             switch ($fieldName) {
-                                case 'p_name':
-                                case 'p_price':
-                                case 'p_sale_price':
-                                case 'p_description':
+                                case 'name':
+                                case 'price':
+                                case 'sale_price':
+                                case 'description':
                                 case 'p_pimage':
                                     echo '<img src="' . BASE_URL . $value . '" alt="" width="100px">';
                                     break;

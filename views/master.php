@@ -48,7 +48,7 @@
     <!--header area end-->
 
     <!-- main containt start -->
-    <?php require_once PATH_VIEW . '/layouts/DashBoard.php' ?>
+    <?php require_once PATH_VIEW . '/DashBoard.php' ?>
     <!-- main contraint end -->
     
     <!-- footer arena start -->

@@ -27,9 +27,9 @@
                                     <a href="#">Điện thoại<i class="fa fa-angle-down"></i></a>
 
                                     <ul class="sub_menu">
-                                        <?php foreach ($brands as $brand) : ?>
+                                        <?php foreach ($categories as $category) : ?>
                                             <li>
-                                                <a href="#"><?= $brand['name'] ?></a>
+                                                <a href="#"><?= $category['name'] ?></a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>
@@ -42,7 +42,6 @@
                         </nav>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
