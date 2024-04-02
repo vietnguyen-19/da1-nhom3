@@ -15,49 +15,37 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Mã </th>
+                        <th>Mã Đơn</th>
                         <th>Họ tên khách hàng</th>
                         <th>Địa chỉ</th>
                         <th>Ghi chú</th>
                         <th>Thanh toán</th>
                         <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
                         <th></th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <?php foreach ($oders as $oder) : 
-                            $name = $oder['first_name']. ' ' . $oder['last_name'];
+                    <?php foreach ($orders as $order) : 
+                            $name = $order['o_first_name']. ' ' . $order['o_last_name'];
                         ?>
                         <tr class="tr-shadow">
-                            <td><?= $oder['id'] ?></td>
-                            
+                            <td><?= $order['o_id'] ?></td>
                             <td><?= $name ?></td>
-                            <td><?= $oder['address'] ?></td>
-                            <td><?= $oder['note'] ?></td>
-                            <td><?= $oder['paymethod'] ?></td>
-                            <td><?= $oder['total_price'] ?></td>
-
-
-                         
+                            <td><?= $order['o_address'] ?></td>
+                            <td><?= $order['o_note'] ?></td>
+                            <td><?= $order['o_paymethod'] ?></td>
+                            <td><?= $order['o_total_price'] ?></td>
+                            <td><?= $order['s_status'] ?></td>
+              
                             <td>
                                 <div class="table-data-feature">
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-detail&id=<?= $oder['id'] ?>">
+                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=orders-detail&id=<?= $order['o_id'] ?>">
                                         <button class="item" data-toggle="tooltip" title="show">
                                             <i class="fa fa-eye"></i>
                                         </button>
                                     </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-update&id=<?= $oder['id'] ?>">
-                                        <button class="item" data-toggle="tooltip" title="Edit">
-                                            <i class="zmdi zmdi-edit"></i>
-                                        </button>
-                                    </a>
-                                    <a href="<?= BASE_URL_NEW_ADMIN ?>?act=oders-delete&id=<?= $oder['id'] ?>" onclick="return confirm('Xác nhận hủy đơn hàng????')">
-                                        <button class="item" data-toggle="tooltip" title="Delete">
-                                            <i class="zmdi zmdi-delete"></i>
-                                        </button>
-                                    </a>
-
                                 </div>
                             </td>
                         </tr>
