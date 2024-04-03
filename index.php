@@ -16,8 +16,26 @@ require_file(PATH_MODEL);
 
 // điều hướng 
 $act = $_GET['act'] ?? '/';
-match($act){
+$arrRouteNeedAuth = [
+    'cart-add',
+    'cart-list',
+    'cart-inc',
+    'cart-dec',
+    'cart-del',
+    'order-checkout',
+    'order-purchase',
+    'order-success',
+];
+middleware_auth_check_WW($act, $arrRouteNeedAuth);
+
+match ($act) {
     '/' => homeCilent(),
+
+    'cart-add'  => cartAdd($_GET['productID'], $_GET['quantity']),
+    'cart-list' => cartList(),
+    'cart-inc'  => cartInc($_GET['productID']),
+    'cart-dec'  => cartDec($_GET['productID']),
+    'cart-del'  => cartDel($_GET['productID']),
 
 
     'login' => loginCilent(),

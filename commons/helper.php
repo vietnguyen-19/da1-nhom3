@@ -68,3 +68,17 @@ if (!function_exists('middleware_auth_check')) {
         }
     }
 }
+if (!function_exists('middleware_auth_check_WW')) {
+    function middleware_auth_check_WW($act, $arrRouteNeedAuth) {
+        if ($act == 'login') {
+            if (!empty($_SESSION['cilent'])) {
+                header('Location: ' . BASE_URL);
+                exit();
+            }
+        } 
+        elseif (empty($_SESSION['cilent']) && in_array($act, $arrRouteNeedAuth)) {
+            header('Location: ' . BASE_URL . '?act=login');
+            exit();
+        }
+    }
+}
