@@ -16,10 +16,10 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="top_right text-end">
                                 <ul>
-                                    <li class="top_links"><a href="#"><i class="ion-android-person"></i> My Account<i class="ion-ios-arrow-down"></i></a>
+                                    <li class="top_links"><a href="#"><i class="ion-android-person"></i><?= $_SESSION['cilent_name'] ?? 'Đăng nhập' ?><i class="ion-ios-arrow-down"></i></a>
                                         <ul class="dropdown_links">
-                                            <li><a href="checkout.html">Checkout </a></li>
-                                            <li><a href="my-account.html">My Account </a></li>
+                                            <li><a href="?act=logout">Đăng xuất </a></li>
+                                            <li><a href="my-account.html">Tài khoản</a></li>
                                             <li><a href="cart.html">Shopping Cart</a></li>
                                         </ul>
                                     </li>

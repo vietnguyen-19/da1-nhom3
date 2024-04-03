@@ -7547,6 +7547,11 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 
 /*contact page css end*/
 /* 17. login page css here */
+.account_form{
+  width: 40%;
+  margin-left: 300px;
+  
+}
 .account_form h2 {
   font-size: 28px;
   text-transform: capitalize;
@@ -7617,7 +7622,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 }
 
 .login_submit {
-  text-align: right;
+  text-align: center;
 }
 @media only screen and (max-width: 767px) {
   .login_submit {
