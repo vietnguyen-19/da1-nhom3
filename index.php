@@ -21,6 +21,7 @@ match($act){
 
 
     'login' => loginCilent(),
+    'logout' => logoutCilent(),
 };
 
 
