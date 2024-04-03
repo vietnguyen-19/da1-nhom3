@@ -18,6 +18,9 @@ require_file(PATH_MODEL);
 $act = $_GET['act'] ?? '/';
 match($act){
     '/' => homeCilent(),
+
+
+    'login' => loginCilent(),
 };
 
 

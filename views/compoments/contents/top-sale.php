@@ -16,14 +16,9 @@
                                 <a class="primary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></a>
                                 <a class="secondary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_img_thumbnail'] ?>" alt=""></a>
                                 <div class="label_product">
-                                    
+
                                 </div>
 
-                                <div class="action_links">
-                                    <ul>
-                                        <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a></li>
-                                    </ul>
-                                </div>
                             </div>
                             <div class="product_content">
                                 <div class="product_ratings">
@@ -40,6 +35,7 @@
                                         <span class="regular_price"><?= $product['p_price'] ?></span>
                                     </div>
                                     <div class="add_to_cart">
+                                        <a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a>
                                         <a href="cart.html" title="add to cart"><span class="lnr lnr-cart"></span></a>
                                     </div>
                                 </div>

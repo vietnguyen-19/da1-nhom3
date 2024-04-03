@@ -65,9 +65,7 @@ match ($act) {
     // luồng đơn hàng
     'orders' => OrderListAll(),
     'orders-detail' => OrderShowOne($_GET['id']),
-    'orders-update' => updateOrderStatus($_GET['id']),
 
-    
 };
 
 
