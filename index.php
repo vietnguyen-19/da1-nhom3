@@ -36,10 +36,12 @@ match ($act) {
     'cart-inc'  => cartInc($_GET['productID']),
     'cart-dec'  => cartDec($_GET['productID']),
     'cart-del'  => cartDel($_GET['productID']),
-
+ 
 
     'login' => loginCilent(),
     'logout' => logoutCilent(),
+
+    'product-detail' => ProductsShow($_GET['id']),
 };
 
 
