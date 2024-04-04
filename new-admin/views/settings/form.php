@@ -5,6 +5,7 @@
             <div class="alert alert-success">
                 <?= $_SESSION['success'] ?>
             </div>
+            <?php unset($_SESSION['success']) ?>
         <?php endif; ?>
 
         <table class="table">

@@ -2,7 +2,7 @@
 
 function categoryListAll()
 {
-    $title = 'Danh sách category';
+    $title = 'Danh sách loại sản phẩmphẩm';
     $view = 'categories/index';
     $style = 'datatable';
     
@@ -19,7 +19,7 @@ function categoryShowOne($id)
         e404();
     }
 
-    $title = 'Chi tiết category: ' . $category['name'];
+    $title = 'Chi tiết sản phẩm: ' . $category['name'];
     $view = 'categories/show';
 
     require_once PATH_VIEW_NEW_ADMIN . 'master.php';
@@ -27,7 +27,7 @@ function categoryShowOne($id)
 
 function categoryCreate()
 {
-    $title = 'Thêm mới category';
+    $title = 'Thêm mới sản phẩm';
     $view = 'categories/create';
 
     if (!empty($_POST)) {
@@ -81,7 +81,7 @@ function categoryUpdate($id)
         e404();
     }
 
-    $title = 'Cập nhật category: ' . $category['name'];
+    $title = 'Cập nhật sản phẩm: ' . $category['name'];
     $view = 'categories/update';
 
     if (!empty($_POST)) {
