@@ -1,3 +1,7 @@
+<?php
+$categories = listAll('categories');
+?>
+
 <header class="header_area header_padding">
     <!--header top start-->
     <?php require_once PATH_VIEW . '/compoments/header/top-start.php' ?>

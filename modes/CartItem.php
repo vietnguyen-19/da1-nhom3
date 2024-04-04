@@ -5,14 +5,14 @@ function updateQuantityByCartIDAndProductID($cartID, $productID, $quantity) {
         $sql = "
             UPDATE cart_items 
             SET quantity = :quantity 
-            WHERE cart_id = :cart_id AND product_id = :product_id;
+            WHERE id_cart = :id_cart AND id_product = :id_product;
         ";
         
         $stmt = $GLOBALS['conn']->prepare($sql);
 
         $stmt->bindParam(":quantity", $quantity);
-        $stmt->bindParam(":cart_id", $cartID);
-        $stmt->bindParam(":product_id", $productID);
+        $stmt->bindParam(":id_cart", $cartID);
+        $stmt->bindParam(":id_product", $productID);
 
         $stmt->execute();
     } catch (\Exception $e) {
@@ -24,13 +24,13 @@ function deleteCartItemByCartIDAndProductID($cartID, $productID) {
     try {
         $sql = "
             DELETE FROM cart_items 
-            WHERE cart_id = :cart_id AND product_id = :product_id;
+            WHERE id_cart = :id_cart AND id_product = :id_product;
         ";
         
         $stmt = $GLOBALS['conn']->prepare($sql);
 
-        $stmt->bindParam(":cart_id", $cartID);
-        $stmt->bindParam(":product_id", $productID);
+        $stmt->bindParam(":id_cart", $cartID);
+        $stmt->bindParam(":id_product", $productID);
 
         $stmt->execute();
     } catch (\Exception $e) {
@@ -42,15 +42,16 @@ function deleteCartItemByCartID($cartID) {
     try {
         $sql = "
             DELETE FROM cart_items 
-            WHERE cart_id = :cart_id;
+            WHERE id_cart = :id_cart;
         ";
         
         $stmt = $GLOBALS['conn']->prepare($sql);
 
-        $stmt->bindParam(":cart_id", $cartID);
+        $stmt->bindParam(":id_cart", $cartID);
 
         $stmt->execute();
     } catch (\Exception $e) {
         debug($e);
     }
 }
+

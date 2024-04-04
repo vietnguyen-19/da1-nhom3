@@ -82,3 +82,18 @@ if (!function_exists('middleware_auth_check_WW')) {
         }
     }
 }
+
+
+if (!function_exists('caculator_total_order')) {
+    function caculator_total_order() {
+        if (isset($_SESSION['cart'])) {
+            foreach($_SESSION['cart'] as $item){
+                $price = $item['p_sale_price'] ?: $item['p_price'];
+                
+                $total = $price * $item['quantity'];
+            }
+            return number_format($total);
+        } 
+        return 0;
+    }
+}

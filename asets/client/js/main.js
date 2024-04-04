@@ -768,3 +768,25 @@
     
     
 })(jQuery);	
+
+
+
+// test 
+// Hiển thị thông báo
+function showModal() {
+    document.getElementById('order-success-modal').style.display = 'block';
+  }
+  
+  // Ẩn thông báo
+  function closeModal() {
+    document.getElementById('order-success-modal').style.display = 'none';
+  }
+  
+  // Khi người dùng click vào nút đóng (x), đóng modal
+  document.querySelector('.close-button').addEventListener('click', closeModal);
+  
+  // Hiển thị modal tự động sau khi tải trang (hoặc sau khi đặt hàng thành công)
+  window.onload = function() {
+    showModal();
+  };
+  
