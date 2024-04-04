@@ -28,7 +28,7 @@ function cilentLogin()
 
     $_SESSION['cilent_name'] = $cilent['name'];
 
-    header('Location:' . BASE_URL . '?act=/');
+    header('Location:' . BASE_URL);
         exit();
 }
 
@@ -37,6 +37,6 @@ function LogoutCilent()
     if(!empty($_SESSION['cilent'])){
         session_destroy();
     }
-    header('Location: ' . BASE_URL . '?act=/');
+    header('Location: ' . BASE_URL);
     exit();
 }
