@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 // require các file trong commons 
 
@@ -26,6 +27,8 @@ $arrRouteNeedAuth = [
     'order-purchase',
     'order-success',
 ];
+
+// kiểm tra xem đăng nhập chưa
 middleware_auth_check_WW($act, $arrRouteNeedAuth);
 
 match ($act) {
@@ -36,7 +39,10 @@ match ($act) {
     'cart-inc'  => cartInc($_GET['productID']),
     'cart-dec'  => cartDec($_GET['productID']),
     'cart-del'  => cartDel($_GET['productID']),
- 
+
+    'order-checkout' => orderCheckout(),
+    'order-purchase' => orderPurchase(),
+    'order-success' => orderSuccess(),
 
     'login' => loginCilent(),
     'logout' => logoutCilent(),

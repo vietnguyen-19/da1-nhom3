@@ -1,71 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách giỏ hàng</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
+<div class="shopping_cart_area mt-32">
     <div class="container">
-        <div class="row">
-            <h1>Danh sách giỏ hàng</h1>
+        <form action="#">
+            <div class="row">
+                <h2>Danh sách giỏ hàng</h2>
+                <div class="col-12">
+                    <div class="table_desc">
+                        <div class="cart_page table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product_remove">Xóa</th>
+                                        <th class="product_thumb">Hình ảnh</th>
+                                        <th class="product_name">Tên sản phẩm</th>
+                                        <th class="product-price">Giá</th>
+                                        <th class="product_quantity">Số lượng</th>
+                                        <th class="product_total">Thành tiền</th>
+                                    </tr>
+                                </thead>
 
-            <table class="table">
-                <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Xóa</th>
-                </tr>
+                                <tbody>
+                                    <?php
+                                    if (!empty($_SESSION['cart'])) :
+                                        foreach ($_SESSION['cart'] as $item) : ?>
+                                            <tr>
+                                                <td class="product_remove">
+                                                    <a href="<?= BASE_URL . '?act=cart-del&productID=' . $item['p_id'] ?>" onclick="return confirm('có chắc xóa không')"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                                <td class="product_thumb">
+                                                    <img src="<?= BASE_URL . $item['p_img_thumbnail'] ?>" alt="">
+                                                </td>
+                                                <td class="product_name">
+                                                    <?= $item['p_name'] ?>
+                                                </td>
+                                                <td class="product-price">
+                                                    <?= number_format($item['p_sale_price'] ?: $item['p_price']) ?>
+                                                </td>
 
+                                                <td class="product_quantity">
+                                                    <a href="<?= BASE_URL . '?act=cart-dec&productID=' . $item['p_id'] ?>" class="btn">-</a>
+                                                    <span class="btn "><?= $item['quantity'] ?></span>
+                                                    <a href="<?= BASE_URL . '?act=cart-inc&productID=' . $item['p_id'] ?>" class="btn">+</a>
+                                                </td>
+                                                <td class="product_total">
+                                                    <?php
+                                                    $total = ($item['p_sale_price'] ?: $item['p_price']) * $item['quantity'];
 
-                <?php
-                if (!empty($_SESSION['cart'])) :
-                    foreach ($_SESSION['cart'] as $item) : ?>
-                        <tr>
-                            <th>
-                                <img src="<?= BASE_URL . $item['img_thumbnail'] ?>" width="50px" alt="">
-                            </th>
-                            <th><?= $item['name'] ?></th>
-                            <th><?= number_format($item['price_sale'] ?: $item['price_regular']) ?></th>
-                            <th>
-                                <a href="<?= BASE_URL . '?act=cart-dec&productID=' . $item['id'] ?>" class="btn btn-danger">-</a>
-
-                                <span class="btn btn-warning"><?= $item['quantity'] ?></span>
-
-                                <a href="<?= BASE_URL . '?act=cart-inc&productID=' . $item['id'] ?>" class="btn btn-success">+</a>
-                            </th>
-                            <th>
-                                <?php 
-                                    $total = ($item['price_sale'] ?: $item['price_regular']) * $item['quantity'];
-
-                                    echo number_format($total);
-                                ?>
-                            </th>
-                            <th>
-                                <a href="<?= BASE_URL . '?act=cart-del&productID=' . $item['id'] ?>" onclick="return confirm('có chắc xóa không')" class="btn btn-danger">Xóa</a>
-                            </th>
-                        </tr>
-                <?php
-                    endforeach;
-                endif;
-                ?>
-
-            </table>
-            
-            <a href="<?= BASE_URL . '?act=order-checkout' ?>" class="btn btn-info mt-5">Checkout</a>
+                                                    echo number_format($total);
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                    <?php
+                                        endforeach;
+                                    endif;
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="cart_submit">
+            <a href="<?= BASE_URL . '?act=order-checkout' ?>">
+                <button type="submit">update cart</button>
+            </a>
         </div>
-    </div>
-</body>
 
-</html>
+    </div>
+</div>

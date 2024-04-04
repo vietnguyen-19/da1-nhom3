@@ -3,13 +3,20 @@
 function cartAdd($productID, $quantity = 0)
 {
     
-
-    $product = showOne('products', $productID);
+    // kiểm tra xem có product với ID không
+    $product = showOneForProduct($productID);
 
     if (empty($product)) {
         debug('404 Not found');
     }
-    $cartID = getCartID( $_SESSION['cilent']);
+    
+
+    // kiểm tra trong bảng cart đã có bản ghi nào của user chưa
+    // có rồi thì lấy cartID, chưa có thì tạo mới
+    $cartID = getCartID( $_SESSION['cilent']['id']);
+
+    $_SESSION['cartID'] = $cartID;
+
 
     if (!isset($_SESSION['cart'][$productID])) {
         $_SESSION['cart'][$productID] = $product;
@@ -18,8 +25,8 @@ function cartAdd($productID, $quantity = 0)
 
         insert('cart_items', [
             
-            'cart_id' => $cartID,
-            'product_id' => $productID,
+            'id_cart' => $cartID,
+            'id_product' => $productID,
             'quantity' => $quantity
         ]);
     } else {
@@ -34,15 +41,16 @@ function cartAdd($productID, $quantity = 0)
 function cartList()
 
 {
+    $title = 'danh sách giỏ hàng';
     $view = '/cart/cart-list';
-    
+    // debug($_SESSION['cart']);
     require_once PATH_VIEW . '/master.php';
 }
 
 function cartInc($productID)
 {
     // Kiểm tra sản phẩm có tồn tại không
-    $product = showOne('products', $productID);
+    $product = showOneForProduct($productID);
 
     if (empty($product)) {
         debug('404 Not found');
@@ -61,7 +69,7 @@ function cartInc($productID)
 
 function cartDec($productID)
 {
-    $product = showOne('products', $productID);
+    $product = showOneForProduct($productID);
 
     if (empty($product)) {
         debug('404 Not found');
@@ -78,7 +86,7 @@ function cartDec($productID)
 
 function cartDel($productID)
 {
-    $product = showOne('products', $productID);
+    $product = showOneForProduct($productID);
 
     if (empty($product)) {
         debug('404 Not found');
