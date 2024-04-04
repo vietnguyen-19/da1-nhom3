@@ -27,15 +27,13 @@
                 </thead>
 
                 <tbody>
-                    <?php foreach ($orders as $order) : 
-                            $name = $order['o_first_name']. ' ' . $order['o_last_name'];
-                        ?>
+                    <?php foreach ($orders as $order) : ?>
                         <tr class="tr-shadow">
                             <td><?= $order['o_id'] ?></td>
-                            <td><?= $name ?></td>
-                            <td><?= $order['o_address'] ?></td>
+                            <td><?= $order['o_user_name'] ?></td>
+                            <td><?= $order['o_user_address'] ?></td>
                             <td><?= $order['o_note'] ?></td>
-                            <td><?= $order['o_paymethod'] ?></td>
+                            <td><?= $order['o_status_payment'] ?></td>
                             <td><?= $order['o_total_price'] ?></td>
                             <td><?= $order['s_status'] ?></td>
               

@@ -13,7 +13,7 @@
                                 <!-- <p class="manufacture_product"><a href="#">Accessories</a></p> -->
                             </div>
                             <div class="product_thumb">
-                                <a class="primary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></a>
+                                <a class="primary_img" href="<?= BASE_URL . '?act=product-detail&productID=' . $product['p_id'] ?>"><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></a>
                                 <a class="secondary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_img_thumbnail'] ?>" alt=""></a>
                                 <div class="label_product">
 

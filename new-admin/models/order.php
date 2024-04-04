@@ -5,23 +5,25 @@ if (!function_exists('listAllOrder')) {
     {
         try {
             $sql = "
-            SELECT o.id       as o_id ,
-                o.shipping    as o_shipping ,
-                o.first_name  as o_first_name ,
-                o.last_name   as o_last_name ,
-                o.address     as o_address ,
-                o.email       as o_email ,
-                o.phone       as o_phone ,
-                o.note        as o_note ,
-                o.paymethod   as o_paymethod ,
-                o.total_price as o_total_price ,
-                s.status      as s_status ,
-                u.name        as u_name ,
-                p.name        as p_name  
+            SELECT o.id           as o_id ,
+                o.user_name       as o_user_name,
+                o.user_address    as o_user_address ,
+                o.user_email      as o_user_email ,
+                o.user_phone      as o_user_phone ,
+                o.note            as o_note ,
+                CASE o.status_payment
+                WHEN 0 THEN 'chưa thanh toán'
+                WHEN 1 THEN 'đã thanh toán'
+                WHEN -1 THEN 'đơn hàng đã hủy'
+                END as o_status_payment ,
+                o.total_price     as o_total_price ,
+                o.create_at       as o_create_at ,
+                o.update_at       as o_update_at,
+                s.status          as s_status
+                
             FROM orders as o
             INNER JOIN order_status as s ON o.id_status = s.id
-            INNER JOIN users as u ON o.id_user = u.id
-            INNER JOIN products as p ON o.id_product = p.id ORDER BY o.id DESC;
+            ORDER BY o.id DESC;
             ";
 
             $stmt = $GLOBALS['conn']->prepare($sql);
@@ -40,25 +42,59 @@ if (!function_exists('showOneForOrder')) {
     {
         try {
             $sql = "
-            SELECT o.id       as o_id ,
-                o.shipping    as o_shipping ,
-                o.first_name  as o_first_name ,
-                o.last_name   as o_last_name ,
-                o.address     as o_address ,
-                o.email       as o_email ,
-                o.phone       as o_phone ,
-                o.note        as o_note ,
-                o.paymethod   as o_paymethod ,
-                o.total_price as o_total_price ,
-                o.id_status   as o_id_status ,
-                s.status      as s_status ,
-                u.name        as u_name ,
-                p.name        as p_name,
-                p.price       as p_price
+            SELECT o.id           as o_id ,
+                o.id_status       as o_status,
+                o.user_name       as o_user_name,
+                o.user_address    as o_user_address ,
+                o.user_email      as o_user_email ,
+                o.user_phone      as o_user_phone ,
+                o.note            as o_note ,
+                CASE o.status_payment
+                WHEN 0 THEN 'chưa thanh toán'
+                WHEN 1 THEN 'đã thanh toán'
+                WHEN -1 THEN 'đơn hàng đã hủy'
+                END as o_status_payment ,
+                o.id_status       as o_id_status,
+                o.total_price     as o_total_price ,
+                o.create_at       as o_create_at ,
+                o.update_at       as o_update_at,
+                s.status          as s_status
+                
             FROM orders as o
             INNER JOIN order_status as s ON o.id_status = s.id
-            INNER JOIN users as u ON o.id_user = u.id
-            INNER JOIN products as p ON o.id_product = p.id
+            ORDER BY o.id DESC;
+                WHERE 
+                    o.id = :id 
+                LIMIT 1
+            ";
+
+            $stmt = $GLOBALS['conn']->prepare($sql);
+
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (\Exception $e) {
+            debug($e);
+        }
+    }
+}
+
+if (!function_exists('showOneForOrderItems')) {
+    function showOneForOrderItems($id)
+    {
+        try {
+            $sql = "
+            SELECT o.id           as o_id ,
+                o.quantity        as o_quantity ,
+                o.price           as o_price,
+                p.name            as p_name
+                
+            FROM order_items as o
+            INNER JOIN orders as s ON o.id_order   = s.id
+            INNER JOIN products as p ON o.id_product  = p.id
+            ORDER BY o.id DESC;
                 WHERE 
                     o.id = :id 
                 LIMIT 1
