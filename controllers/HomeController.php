@@ -14,8 +14,8 @@ function homeCilent()
     require_once PATH_VIEW . '/master.php';
 
 }
-function dataProducts()
+function adminLoginInCilent()
 {
-
-    require_once PATH_VIEW . '/master.php';
+    require_file(PATH_CONTROLLER_NEW_ADMIN);
+    require_once PATH_VIEW_NEW_ADMIN . "?act=/" ;
 }

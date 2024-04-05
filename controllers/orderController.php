@@ -71,11 +71,10 @@ function orderPurchase()
 
             unset($_SESSION['cart']);
             unset($_SESSION['cartID']);
-
         } catch (\Exception $e) {
             debug($e);
         }
-
+        
         header('location: ' . BASE_URL . '?act=order-success');
         exit();
     }
