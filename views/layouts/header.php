@@ -10,11 +10,6 @@ $categories = listAll('categories');
     <!--header middel start-->
     <?php require_once PATH_VIEW . '/compoments/header/middel-start.php' ?>
     <!--header middel end-->
-
-    <!--mini cart-->
-    <?php require_once PATH_VIEW . '/compoments/header/mini-cart.php' ?>
-    <!--mini cart end-->
-
     <!--header bottom satrt-->
     <div class="header_bottom bottom_four sticky-header">
         <div class="container">

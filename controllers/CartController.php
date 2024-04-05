@@ -100,3 +100,11 @@ function cartDel($productID)
 
     header('Location: ' . BASE_URL . '?act=cart-list');
 }
+
+function countCart(){
+    $cart = $_SESSION['cart']['p_id'];
+    $count = 0;
+    foreach($cart as $Cart){
+        $count += 1;
+    }
+}
