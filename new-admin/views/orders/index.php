@@ -16,12 +16,11 @@
                 <thead>
                     <tr>
                         <th>Mã Đơn</th>
-                        <th>Họ tên khách hàng</th>
-                        <th>Địa chỉ</th>
-                        <th>Ghi chú</th>
+                        <th>Ngày tạo</th>
+                        <th>Khách hàng</th>
                         <th>Thanh toán</th>
-                        <th>Tổng tiền</th>
                         <th>Trạng thái</th>
+                        <th>Tổng tiền</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -30,13 +29,12 @@
                     <?php foreach ($orders as $order) : ?>
                         <tr class="tr-shadow">
                             <td><?= $order['o_id'] ?></td>
+                            <td><?= $order['o_create_at'] ?></td>
                             <td><?= $order['o_user_name'] ?></td>
-                            <td><?= $order['o_user_address'] ?></td>
-                            <td><?= $order['o_note'] ?></td>
                             <td><?= $order['o_status_payment'] ?></td>
-                            <td><?= $order['o_total_price'] ?></td>
                             <td><?= $order['s_status'] ?></td>
-              
+                            <td><?= $order['o_total_price'] ?></td>
+                       
                             <td>
                                 <div class="table-data-feature">
                                     <a href="<?= BASE_URL_NEW_ADMIN ?>?act=orders-detail&id=<?= $order['o_id'] ?>">
