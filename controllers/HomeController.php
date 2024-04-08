@@ -17,5 +17,5 @@ function homeCilent()
 function adminLoginInCilent()
 {
     require_file(PATH_CONTROLLER_NEW_ADMIN);
-    require_once PATH_VIEW_NEW_ADMIN . "?act=/" ;
+    
 }

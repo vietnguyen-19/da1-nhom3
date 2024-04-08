@@ -33,10 +33,7 @@
                         <label class="form-label"><strong>Họ tên khách hàng: </strong> </label>
                         <input type="text" value="<?= $orderSHow['user_name'] ?>" disabled>
                     </div>
-                    <div class="mb-3 mt-3">
-                        <label class="form-label"><strong>Tên sản phẩm: </strong> </label>
-                        <input type="text" value="<?= $orderSHow['name'] ?>" disabled>
-                    </div>
+                    
                     <div class="mb-3 mt-3">
                         <label class="form-label"><strong>Địa chỉ: </strong> </label>
                         <input type="text" value="<?= $orderSHow['user_address'] ?>" disabled>
@@ -51,11 +48,15 @@
                     </div>
                     <div class="mb-3 mt-3">
                         <label class="form-label"><strong>Ghi chú: </strong> </label>
-                        <input type="text" value="<?= $orderSHow['note'] ?>" disabled>
+                        <input type="text" value="<?= $orderSHow['note'] ? : 'không có ghi chú' ?>" disabled>
                     </div>
                 </div>
 
                 <div class="col-md-6">
+                <div class="mb-3 mt-3">
+                        <label class="form-label"><strong>Tên sản phẩm: </strong> </label>
+                        <input type="text" value="<?= $orderSHow['name'] ?>" disabled>
+                    </div>
                     <div class="mb-3 mt-3">
                         <label class="form-label"><strong>Giá: </strong> </label>
                         <input type="text" value="<?= $orderSHow['price'] ?>" disabled>
@@ -69,14 +70,20 @@
                         <label class="form-label"><strong>Trạng thái thanh toán: </strong> </label>
                         <input type="text" value="<?= $orderSHow['status_payment'] ?>" disabled>
                     </div>
+                    <div class="mb-3 mt-3">
+                        <label class="form-label"><strong>Ngày tạo: </strong> </label>
+                        <input type="datetime" value="<?= date($format,$createAt) ?>" disabled>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label class="form-label"><strong>Ngày cập nhật: </strong> </label>
+                        <input type="datetime" value="<?= date($format,$updateAt) ?>" disabled>
+                    </div>
                     <br>
                     <div class="mb-3 mt-3">
                         <label for="status" class="form-label"><strong>Trạng thái đơn hàng: </strong> </label>
                         <select class="form-control" id="status" name="status">
                             <?php foreach ($status as $status) : ?>
                                 <option value="<?= $status['id'] ?>"><?= $status['value'] ?></option>
-
-
                             <?php endforeach; ?>
                         </select>
                     </div>

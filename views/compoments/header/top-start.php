@@ -22,7 +22,7 @@
                                         <ul class="dropdown_links">
                                             <li><a href="?act=logout">Đăng xuất </a></li>
                                             <li><a href="my-account.html">Tài khoản</a></li>
-                                            <li><a href="?act=admin-login">Admin</a></li>
+                                            <li><a href="<?= BASE_URL_NEW_ADMIN . '?act=admin-login' ?>">Admin</a></li>
                                         </ul>
                                     <?php }else{ ?>
                                         <a href="<?= BASE_URL . '?act=login' ?>"> Đăng nhập</a>
