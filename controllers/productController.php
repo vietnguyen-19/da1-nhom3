@@ -3,6 +3,10 @@
 
 function ProductsShow($productID)
 {
+    $product = listAllProduct();
+    if (empty($product)) {
+        e404();
+    }
 
     $products = showOneForProduct($productID);
     if (empty($products)) {
