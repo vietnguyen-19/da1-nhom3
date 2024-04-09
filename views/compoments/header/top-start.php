@@ -21,7 +21,7 @@
                                         <?= $_SESSION['cilent_name'] ?><i class="ion-ios-arrow-down"></i></a>
                                         <ul class="dropdown_links">
                                             <li><a href="?act=logout">Đăng xuất </a></li>
-                                            <li><a href="my-account.html">Tài khoản</a></li>
+                                            <li><a href="?act=order-list">Đơn hàng</a></li>
                                             <li><a href="<?= BASE_URL_NEW_ADMIN . '?act=admin-login' ?>">Admin</a></li>
                                         </ul>
                                     <?php }else{ ?>
