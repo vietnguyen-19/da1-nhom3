@@ -35,7 +35,7 @@ $categories = listAll('categories');
 
                                 </li>
                                 <li>
-                                    <a href="#">Liên hệ </a>
+                                    <a href="?act=contact">Liên hệ </a>
                                 </li>
                             </ul>
                         </nav>

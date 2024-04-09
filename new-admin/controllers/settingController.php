@@ -6,7 +6,7 @@ function settingShowForm()
     $view = 'settings/form';
 
     $settings = settingPluckKeyValue();
-
+    
     require_once PATH_VIEW_NEW_ADMIN . "master.php";
 }
 

@@ -8,18 +8,21 @@
                 <div class="product_carousel product_column4 owl-carousel">
                     <?php foreach ($products as $product) : ?>
                         <div class="single_product">
+
                             <div class="product_name">
-                                <h3><a href="product-details.html"><?= $product['p_name'] ?></a></h3>
-                                <!-- <p class="manufacture_product"><a href="#">Accessories</a></p> -->
+                                <h3>
+                                    <a href="<?= BASE_URL . '?act=product-detail&productID=' . $product['p_id'] ?>"><?= $product['p_name'] ?></a>
+                                </h3>
                             </div>
+
                             <div class="product_thumb">
                                 <a class="primary_img" href="<?= BASE_URL . '?act=product-detail&productID=' . $product['p_id'] ?>"><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></a>
-                                <a class="secondary_img" href="product-details.html"><img src="<?= BASE_URL . $product['p_img_thumbnail'] ?>" alt=""></a>
+                                <a class="secondary_img" href="<?= BASE_URL . '?act=product-detail&productID=' . $product['p_id'] ?>"><img src="<?= BASE_URL . $product['p_img_thumbnail'] ?>" alt=""></a>
                                 <div class="label_product">
-
+                                    <span class="label_sale">-0%</span>
                                 </div>
-
                             </div>
+
                             <div class="product_content">
                                 <div class="product_ratings">
                                     <ul>
