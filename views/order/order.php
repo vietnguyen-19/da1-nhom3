@@ -108,13 +108,8 @@
                         </div>
                         <div class="payment_method">
                             <div class="panel-default">
-                                <input id="payment" name="check_method" type="radio" data-target="createp_account" />
+                                <input id="payment" name="check_method" type="radio" data-target="createp_account" checked />
                                 <label for="payment" data-bs-toggle="collapse" href="#method" aria-controls="method">Thanh toán khi nhận hàng</label>
-
-                            </div>
-                            <div class="panel-default">
-                                <input id="payment_defult" name="check_method" type="radio" data-target="createp_account" />
-                                <label for="payment_defult" data-bs-toggle="collapse" href="#collapsedefult" aria-controls="collapsedefult">Thanh toán online <img src="./asets/client/img/icon/papyel.png" alt=""></label>
 
                             </div>
                         </div>

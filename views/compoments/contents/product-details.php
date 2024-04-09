@@ -56,10 +56,9 @@
                         <br>
                         <div class="product_variant quantity">
                             <span>Số lượng trong kho: <?= $products['p_quantity'] ?> </span>
-                            <br>
-                            <a href="<?= BASE_URL . '?act=order-checkout&productID=' . $products['p_id'] . '&quantity=1' ?>">
-                                <button class="button">add to cart</button>
-                            </a>
+                        </div>
+                        <div class="product_variant quantity">
+                            <a class="button" href="<?= BASE_URL . '?act=cart-add&productID=' . $products['p_id'] . '&quantity=1' ?>">add to cart</a>
                         </div>
                     </form>
 

@@ -43,6 +43,7 @@ match ($act) {
     'order-checkout' => orderCheckout(),
     'order-purchase' => orderPurchase(),
     'order-success' => orderSuccess(),
+    'order-list' => orderList(),
 
     'login' => loginCilent(),
     'logout' => logoutCilent(),

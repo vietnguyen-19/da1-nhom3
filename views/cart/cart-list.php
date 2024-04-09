@@ -27,7 +27,7 @@
                                                     <a href="<?= BASE_URL . '?act=cart-del&productID=' . $item['p_id'] ?>" onclick="return confirm('có chắc xóa không')"><i class="fa fa-trash-o"></i></a>
                                                 </td>
                                                 <td class="product_thumb">
-                                                    <img src="<?= BASE_URL . $item['p_img_thumbnail'] ?>" alt="">
+                                                    <img src="<?= BASE_URL . $item['p_pimage'] ?>" alt="">
                                                 </td>
                                                 <td class="product_name">
                                                     <?= $item['p_name'] ?>
@@ -62,7 +62,7 @@
         </form>
         <div class="cart_submit">
             <a href="<?= BASE_URL . '?act=order-checkout' ?>">
-                <button type="submit">update cart</button>
+                <button type="submit">Thanh toán</button>
             </a>
         </div>
 

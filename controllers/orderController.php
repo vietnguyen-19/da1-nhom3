@@ -99,3 +99,39 @@ function orderSuccess()
     $title = 'Đặt hàng thành công';
     require_once PATH_VIEW . '/master.php';
 }
+
+
+function orderList()
+{
+    $userID = $_SESSION['cilent']['id'];
+
+    $orders = [];
+
+    $order = listAllOrderByUserID($userID);
+
+    if (!empty($order)) {
+
+        foreach ($order as $order) {
+
+            $orderID = $order['o_id'];
+            $orderItem = showAllForOrderItemsByUserID($orderID);
+
+            foreach ($orderItem as $orderItem) {
+                $orders[] = [
+                    'id' => $order['o_id'],
+                    'user_name' => $order['o_user_name'],
+                    'product_name' => $orderItem['p_name'],
+                    'price' => $orderItem['o_price'],
+                    'quantity' => $orderItem['o_quantity'],
+                    'total' => $order['o_total_price'],
+                    'status_payment' => $order['o_status_payment'],
+                    'status' => $order['s_status']
+
+                ];
+            }
+        }
+        $view = '\order\order-list';
+        $title = 'Đơn hàng';
+        require_once PATH_VIEW . '/master.php';
+    }
+}
