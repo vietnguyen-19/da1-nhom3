@@ -111,21 +111,21 @@ function orderList()
 
     if (!empty($order)) {
 
-        foreach ($order as $order) {
+        foreach ($order as $items) {
 
-            $orderID = $order['o_id'];
-            $orderItem = showAllForOrderItemsByUserID($orderID);
+            $orderID = $items['o_id'];
+            $orderItems = showAllForOrderItemsByUserID($orderID);
 
-            foreach ($orderItem as $orderItem) {
+            foreach ($orderItems as $orderItem) {
                 $orders[] = [
-                    'id' => $order['o_id'],
-                    'user_name' => $order['o_user_name'],
+                    'id' => $items['o_id'],
+                    'user_name' => $items['o_user_name'],
                     'product_name' => $orderItem['p_name'],
                     'price' => $orderItem['o_price'],
                     'quantity' => $orderItem['o_quantity'],
-                    'total' => $order['o_total_price'],
-                    'status_payment' => $order['o_status_payment'],
-                    'status' => $order['s_status']
+                    'total' => $items['o_total_price'],
+                    'status_payment' => $items['o_status_payment'],
+                    'status' => $items['s_status']
 
                 ];
             }

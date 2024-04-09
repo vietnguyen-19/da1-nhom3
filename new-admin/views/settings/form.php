@@ -14,12 +14,18 @@
                 <th>Trường dữ liệu</th>
                 <th>Dữ liệu</th>
             </tr>
-            <tr>
-                <td>logo</td>
-                <td>
-                    <input type="text" name="logo" class="form-label form-control" value="<?= $settings['logo'] ?? null ?>">
+            <?php foreach($settings as $keys => $values) :
+                ?>
+                <tr>
+                    <td>
+                        <?= $keys ?>
+                    </td>
+                    <td>
+                    <input type="text" name="<?= $keys ?>" class="form-label form-control" value="<?= $values ?? null ?>">
                 </td>
-            </tr>
+                </tr>
+
+            <?php endforeach; ?>
 
         </table>
         <button type="submit" class="btn btn-primary">Lưu</button>

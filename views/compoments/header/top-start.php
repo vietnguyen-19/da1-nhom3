@@ -1,3 +1,6 @@
+<?php
+$settings = settingPluckKeyValue();
+?>
 <div class="header_top">
             <div class="container">
                 <div class="top_inner">
@@ -6,10 +9,10 @@
                             <div class="follow_us">
                                 <label>Follow Us:</label>
                                 <ul class="follow_link">
-                                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                    <li><a href="<?= $settings['Facebook'] ?>"><i class="ion-social-facebook"></i></a></li>
                                     <li><a href="#"><i class="ion-social-twitter"></i></a></li>
                                     <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-                                    <li><a href="#"><i class="ion-social-youtube"></i></a></li>
+                                    <li><a href="<?= $settings['Youtube'] ?>"><i class="ion-social-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>

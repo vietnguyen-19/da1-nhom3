@@ -9,7 +9,7 @@ function homeCilent()
     $products = listAllProduct();
     $categories = listAll('categories');
     $users = listAll('users');
-
+    $brands = listAll('brands');
 
     require_once PATH_VIEW . '/master.php';
 
