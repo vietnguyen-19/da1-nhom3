@@ -5,9 +5,10 @@
                 <div class="brand_container owl-carousel">
                     <?php foreach ($brands as $brand) : ?>
                         <div class="single_brand">
-                            <a href="#"><img src="<?= BASE_URL . $brand['image'] ?>" alt=""></a>
+                        <a href="<?= BASE_URL . '?act=ShowByBrand&brandID=' .$brand['id'] ?>">
+                                <img src="<?= BASE_URL . $brand['image'] ?>" alt="">
+                            </a>
                         </div>
-
                     <?php endforeach; ?>
                 </div>
             </div>

@@ -50,6 +50,7 @@ match ($act) {
     'admin-login' => adminLoginInCilent(),
 
     'product-detail' => ProductsShow($_GET['productID']),
+    'ShowByBrand' =>ShowByBrand($_GET['brandID']),
 
     'contact' => contactShow(),
 };
