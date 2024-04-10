@@ -27,10 +27,12 @@
                             <label>Mật khẩu <span>*</span></label>
                             <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password">
                         </p>
+                        <p style="gap: 20px;">Bạn chưa có tài khoản<a style="color: blue;  text-decoration: underline;" href="<?= BASE_URL.'?act=register' ?>">Đăng ký Ngay</a> </p>
                         <div class="login_submit">
                             <button type="submit">Đăng nhập</button>
 
                         </div>
+                       
 
                     </form>
                 </div>
