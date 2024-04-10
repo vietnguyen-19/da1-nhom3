@@ -30,7 +30,7 @@ function ShowByBrand($brandID)
     
     $view = '/compoments\contents\productByBrand';
     
-    $title = "Chi tiết sản phẩm";
+    $title = "Sản phẩm theo nhãn hàng";
     
     require_once PATH_VIEW . '/master.php';
 }

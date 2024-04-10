@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="section_title">
-                    <h2><span> sản phẩm <strong>mới</strong></span></h2>
+                    <h2><span>Sản phẩm của <Strong><?= $productByBrands['p_name'] ?></Strong></span></h2>
                 </div>
                 <div class="product_carousel product_column5 owl-carousel">
                     <?php foreach ($productByBrands as $productByBrand) : ?>
