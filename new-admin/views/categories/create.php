@@ -34,7 +34,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Thêm</button>
-            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=users" class="btn btn-danger">Danh sách</a>
+            <a href="<?= BASE_URL_NEW_ADMIN ?>?act=categories" class="btn btn-danger">Danh sách</a>
         </form>
         <!-- END DATA TABLE -->
     </div>

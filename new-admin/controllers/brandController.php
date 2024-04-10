@@ -2,7 +2,7 @@
 
 function brandsListAll()
 {
-    $title = 'Danh sách brands';
+    $title = 'Danh sách nhãn hàng';
     $view = 'brands/index';
     $script = 'datatable';
     $script2 = 'brands/script';
@@ -35,7 +35,7 @@ function brandsShowOne($id)
 
 function brandsCreate()
 {
-    $title = 'Thêm mới brands';
+    $title = 'Thêm mới nhãn hàng';
     $view = 'brands/create';
 
     if (!empty($_POST)) {
@@ -90,7 +90,7 @@ function brandsUpdate($id)
         e404();
     }
 
-    $title = 'Cập nhật brands: ' . $brands['name'];
+    $title = 'Cập nhật nhãn hàng: ' . $brands['name'];
     $view = 'brands/update';
 
     if (!empty($_POST)) {
