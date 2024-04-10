@@ -47,6 +47,7 @@ match ($act) {
 
     'login' => loginCilent(),
     'logout' => logoutCilent(),
+    'register' => registerCilent(),
     'admin-login' => adminLoginInCilent(),
 
     'product-detail' => ProductsShow($_GET['productID']),
