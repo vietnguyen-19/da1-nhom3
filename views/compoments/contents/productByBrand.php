@@ -41,7 +41,7 @@
                                             <span class="regular_price"><?= number_format($productByBrand['p_sale_price'] ?: $productByBrand['p_price'])  ?> Vnd</span>
                                         </div>
                                         <div class="add_to_cart">
-                                            <a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a>
+                                            
                                             <a href="<?= BASE_URL . '?act=cart-add&productID=' . $productByBrand['p_id'] . '&quantity=1' ?>" title="add to cart"><span class="lnr lnr-cart"></span></a>
                                         </div>
                                     </div>

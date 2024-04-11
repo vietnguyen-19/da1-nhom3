@@ -25,7 +25,7 @@ function ShowByBrand($brandID)
     $productByBrands = listProductsByBrand($brandID);
     
     if (empty($productByBrands)) {
-        $errorName = "Bạn chưa có sản phẩm nào";
+        $errorName = "Hiện chưa có sản phẩm nào";
 
         $view = '/compoments\contents\productByBrand';
         $title = "Sản phẩm theo nhãn hàng";
