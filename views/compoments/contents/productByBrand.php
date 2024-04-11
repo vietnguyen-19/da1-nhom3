@@ -5,17 +5,17 @@
                 <div class="section_title">
                     <h2><span>Sản phẩm của <Strong><?= $brandName ?></Strong></span></h2>
                 </div>
-                <div class="product_carousel product_column4 owl-carousel">
+                <div class="" style="display: flex;" >
                     <?php foreach ($productByBrands as $productByBrand) : ?>
-                        <div class="single_product">
+                        <div class="single_product" style="width: 200px;" >
                             <div class="product_name">
                                 <h3>
                                     <a href="<?= BASE_URL . '?act=product-detail&productID=' . $productByBrand['p_id'] ?>"><?= $productByBrand['p_name'] ?></a>
                                 </h3>
                             </div>
 
-                            <div class="product_thumb">
-                                <a class="primary_img" href="<?= BASE_URL . '?act=product-detail&productID=' . $productByBrand['p_id'] ?>"><img src="<?= BASE_URL . $productByBrand['p_pimage'] ?>" alt=""></a>
+                            <div class="product_thumb " style="width: 100;" >
+                                <a class="primary_img" style="width: 100%;" href="<?= BASE_URL . '?act=product-detail&productID=' . $productByBrand['p_id'] ?>"><img src="<?= BASE_URL . $productByBrand['p_pimage'] ?>" alt=""></a>
                                 <a class="secondary_img" href="<?= BASE_URL . '?act=product-detail&productID=' . $productByBrand['p_id'] ?>"><img src="<?= BASE_URL . $productByBrand['p_img_thumbnail'] ?>" alt=""></a>
                                 <div class="label_product">
                                     <span class="label_sale">-57%</span>
