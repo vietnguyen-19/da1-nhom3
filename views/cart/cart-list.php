@@ -1,6 +1,14 @@
 <div class="shopping_cart_area mt-32">
     <div class="container">
-        <form action="#">
+        <?php if(empty($_SESSION['cart'])){ ?>
+            <h2>bạn chưa thêm sản phẩm nào vào giỏ hàng!!</h2>
+            <div class="cart_submit">
+            <a href="<?= BASE_URL . '?act=/' ?>">
+                <button type="submit">Mua hàng</button>
+            </a>
+        </div>
+        <?php }else{ ?>
+            <form action="#">
             <div class="row">
                 <h2>Danh sách giỏ hàng</h2>
                 <div class="col-12">
@@ -65,6 +73,7 @@
                 <button type="submit">Thanh toán</button>
             </a>
         </div>
+        <?php } ?>
 
     </div>
 </div>

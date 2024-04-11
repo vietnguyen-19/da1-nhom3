@@ -36,7 +36,7 @@ function showByCategory($categoryID){
         require_once PATH_VIEW . '/master.php';
 
     }else{
-        $errorName = "Bạn chưa có sản phẩm nào";
+        $errorName = "Hiện chưa có sản phẩm nào";
         $view = '\categories\show';
         $title = 'loại sản phẩm';
     
