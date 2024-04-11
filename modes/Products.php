@@ -127,25 +127,25 @@ function listProductsByBrand($brandId)
     try {
         $sql = "
         SELECT 
-        p.id            as p_id,
-        p.id_brand      as p_id_brand,
-        p.id_category   as p_id_category,
-        p.name          as p_name,
-        p.price         as p_price,
-        p.sale_price    as p_sale_price,
-        p.description   as p_description,
-        p.images         as p_pimage,
-        p.img_thumbnail as p_img_thumbnail,
-        p.quantity      as p_quantity,
-        p.key_word      as p_key_word,
-        p.view          as p_view,
-        c.name          as c_name,
-        au.name         as au_name
+            p.id            as p_id,
+            p.id_brand      as p_id_brand,
+            p.id_category   as p_id_category,
+            p.name          as p_name,
+            p.price         as p_price,
+            p.sale_price    as p_sale_price,
+            p.description   as p_description,
+            p.images        as p_pimage,
+            p.img_thumbnail as p_img_thumbnail,
+            p.quantity      as p_quantity,
+            p.key_word      as p_key_word,
+            p.view          as p_view,
+            c.name          as c_name,
+            b.name          as b_name
         FROM products as p
         INNER JOIN categories as c ON c.id = p.id_category
-        INNER JOIN brands as au ON au.id = p.id_brand
+        INNER JOIN brands as b ON b.id = p.id_brand
         WHERE p.id_brand = :brandId
-        ORDER BY p.id DESC;
+        ORDER BY p.id DESC
         ";
 
         $stmt = $GLOBALS['conn']->prepare($sql);

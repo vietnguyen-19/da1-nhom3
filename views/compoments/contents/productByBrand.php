@@ -2,11 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <?php foreach ($productByBrands as $productByBrand) : ?>
                 <div class="section_title">
-                    <h2><span>Sản phẩm của <Strong><?= $productByBrands['p_name'] ?></Strong></span></h2>
+                    <h2><span>Sản phẩm của <?= $productByBrand['b_name'] ?></span></h2>
                 </div>
                 <div class="">
-                    <?php foreach ($productByBrands as $productByBrand) : ?>
+                    
                         <div class="">
 
                             <div class="product_name">
