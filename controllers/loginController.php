@@ -25,15 +25,14 @@ function registerCilent()
             "address" => $_POST['address'] ?? null,
             "phone" => $_POST['phone'] ?? null,
             "password" => $_POST['password'] ?? null,
-
         ];
-
+        validateUserCreate($data);
 
         insert('users', $data);
 
         $_SESSION['success'] = 'Thêm tài khoản thành công!';
 
-        header('Location: ' . BASE_URL);
+        header('Location: ' . BASE_URL );
         exit();
     }
     require_once PATH_VIEW . '/master.php';
@@ -66,4 +65,35 @@ function LogoutCilent()
     }
     header('Location: ' . BASE_URL);
     exit();
+}
+function validateUserCreate($data)
+{
+    $errors = [];
+
+    if (empty($data['name'])) {
+        $errors[] = 'Tên người dùng là bắt buộc';
+    } else if (strlen($data['name']) > 50) {
+        $errors[] = 'Tên người dùng dài tối đa 50 ký tự';
+    }
+    if (empty($data['email'])) {
+        $errors[] = ' email là bắt buộc';
+    } else if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = ' email không đúng định dạng';
+    } else if (!checkUniqueEmail('users', $data['email'])) {
+        $errors[] = 'Email đã được sử dụng';
+    }
+    if (empty($data['password'])) {
+        $errors[] = ' password là bắt buộc';
+    } else if (strlen($data['password']) < 6 || strlen($data['password']) > 20) {
+        $errors[] = ' password đồ dài nhỏ nhất là 6, lớn nhất là 20';
+    }
+
+
+    if (!empty($errors)) {
+        $_SESSION['errors'] = $errors;
+        $_SESSION['data'] = $data;
+
+        header('Location: ' . BASE_URL . '?act=register');
+        exit();
+    }
 }
