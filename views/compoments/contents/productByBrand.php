@@ -5,9 +5,9 @@
                 <div class="section_title">
                     <h2><span>Sản phẩm của <Strong><?= $productByBrands['p_name'] ?></Strong></span></h2>
                 </div>
-                <div class="product_carousel product_column5 owl-carousel">
+                <div class="">
                     <?php foreach ($productByBrands as $productByBrand) : ?>
-                        <div class="single_product">
+                        <div class="">
 
                             <div class="product_name">
                                 <h3>
