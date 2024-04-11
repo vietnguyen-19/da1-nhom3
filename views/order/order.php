@@ -57,7 +57,7 @@
                             <div class="col-12">
                                 <div class="order-notes">
                                     <label for="order_note">Ghi chú đơn hàng</label>
-                                    <textarea id="order_note" placeholder="Ghi chú thêm cho shop, tài xế..."  name="note"></textarea>
+                                    <textarea id="order_note" placeholder="Ghi chú thêm cho shop, tài xế..." name="note"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -110,18 +110,21 @@
                             <div class="panel-default">
                                 <input id="payment" name="check_method" type="radio" data-target="createp_account" checked />
                                 <label for="payment" data-bs-toggle="collapse" href="#method" aria-controls="method">Thanh toán khi nhận hàng</label>
-
                             </div>
                         </div>
+
                     </div>
                 </div>
-                <div class="order_button">
-                    <button type="submit">Đặt hàng ngay</button>
-                    <a href="<?= BASE_URL ?>" onclick="return confirm('bạn chắc chứ ???')">
-                        <label class="righ_0">Trang chủ</label>
-                    </a>
-                </div>
-            </form>
         </div>
+        <div class="order_button">
+            <button type="submit">Đặt hàng ngay</button>
+            <a href="<?= BASE_URL ?>" onclick="return confirm('bạn chắc chứ ???')">
+                <label class="righ_0">Trang chủ</label>
+            </a>
+        </div>
+        </form>
     </div>
 </div>
+</div>
+
+

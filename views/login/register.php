@@ -27,24 +27,24 @@
                     <form action="#" method="post">
                         <p>
                             <label>Tên người dùng <span>*</span></label>
-                            <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name" autocomplete="name">
+                            <input type="text" class="form-control" id="name" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['name'] : null ?>" placeholder="Enter name" name="name" autocomplete="name" required>
                         </p>
                         <p>
                             <label>Email <span>*</span></label>
-                            <input type="email" class="form-control" id="email" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['email'] : null ?>" placeholder="Enter email" name="email" autocomplete="username">
+                            <input type="email" class="form-control" id="email" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['email'] : null ?>" placeholder="Enter email" name="email" autocomplete="username" required>
                         </p>
                         <p>
                             <label>Mật khẩu <span>*</span></label>
-                            <input type="password" class="form-control" id="password" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['password'] : null ?>" placeholder="Enter password" name="password" autocomplete="current-password">
+                            <input type="password" class="form-control" id="password" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['password'] : null ?>" placeholder="Enter password" name="password" autocomplete="current-password" required>
                         </p>
 
                         <p>
                             <label>SĐT <span>*</span></label>
-                            <input type="number" class="form-control" id="phone" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['phone'] : null ?>" placeholder="Enter phone" name="phone">
+                            <input type="number" class="form-control" id="phone" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['phone'] : null ?>" placeholder="Enter phone" name="phone" required>
                         </p>
                         <p>
                             <label>Địa chỉ <span>*</span></label>
-                            <input type="text" class="form-control" id="address" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['address'] : null ?>" placeholder="Enter address" name="address">
+                            <input type="text" class="form-control" id="address" value="<?= isset($_SESSION['data']) ? $_SESSION['data']['address'] : null ?>" placeholder="Enter address" name="address" required>
                         </p>
                         <p style="gap: 20px;">Bạn đã có tài khoản<a style="color: blue;  text-decoration: underline;" href="<?= BASE_URL.'?act=login' ?>">Đăng Nhập Ngay</a> </p>
                         <div class="login_submit">
