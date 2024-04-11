@@ -6,9 +6,9 @@
                     <h2><span> <strong><?= $categoryName ?></strong></span></h2>
                 </div>
 
-                <div class="product_carousel product_column4 owl-carousel">
+                <div class="  " style="display: flex;" >
                     <?php foreach ($showProductByCategories as $category) : ?>
-                        <div class="single_product">
+                        <div class="single_product" style="width: 200px;" >
                             <div class="product_name">
                                 <h3>
                                     <a href="<?= BASE_URL . '?act=product-detail&productID=' . $category['p_id'] ?>">

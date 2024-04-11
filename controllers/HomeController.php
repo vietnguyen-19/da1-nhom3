@@ -28,7 +28,7 @@ function showByCategory($categoryID){
     $categoryName = $showProductByCategories[0]['c_name'];
     
     if (empty($showProductByCategories)) {
-        e404();
+        echo " san pham ko ton tai";
     }
     
     
