@@ -25,7 +25,7 @@ $settings = settingPluckKeyValue();
                                         <ul class="dropdown_links">
                                             <li><a href="?act=logout">Đăng xuất </a></li>
                                             <li><a href="?act=order-list">Đơn hàng</a></li>
-                                            <li><a href="<?= BASE_URL_NEW_ADMIN . '?act=admin-login' ?>">Admin</a></li>
+                                            <li><a href="<?= BASE_URL_NEW_ADMIN . '?act=login-admin' ?>">Admin</a></li>
                                         </ul>
                                     <?php }else{ ?>
                                         <a href="<?= BASE_URL . '?act=login' ?>"> Đăng nhập</a>

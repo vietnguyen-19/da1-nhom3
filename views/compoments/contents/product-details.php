@@ -45,13 +45,13 @@
                         <div class="price_box">
                             <span class="current_price"><?= $products['p_price'] ?></span>
                             <span class="old_price"><?= $products['p_sale_price'] ?></span>
-
+                            <span> Vnd</span>
                         </div>
                         <div class="product_meta">
-                            <span>Loại điện thoại: <?= $products['c_name'] ?></span>
+                            <span>Loại điện thoại: <strong><?= $products['c_name'] ?></strong></span>
                         </div>
                         <div>
-                            <span>thương hiệu: <?= $products['au_name'] ?> </span>
+                            <span>thương hiệu: <strong><?= $products['au_name'] ?></strong> </span>
                         </div>
                         <br>
                         <div class="product_variant quantity">

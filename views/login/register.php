@@ -5,7 +5,7 @@
             <!--login area start-->
             <div class="col-lg-12 col-md-6">
                 <div class="account_form">
-                    <h2>register</h2>
+                    <h2>Đăng ký</h2>
                     <?php if (isset($_SESSION['success'])) : ?>
                         <div class="alert alert-success">
                             <?= $_SESSION['success'] ?>

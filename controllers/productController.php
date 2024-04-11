@@ -24,16 +24,19 @@ function ShowByBrand($brandID)
 {
     $productByBrands = listProductsByBrand($brandID);
     
-    $brandName = $productByBrands[0]['b_name'];
     if (empty($productByBrands)) {
-        e404();
+        $errorName = "Bạn chưa có sản phẩm nào";
+
+        $view = '/compoments\contents\productByBrand';
+        $title = "Sản phẩm theo nhãn hàng";
+
+        require_once PATH_VIEW . '/master.php';
+    } else {
+        $brandName = $productByBrands[0]['b_name'];
+
+        $view = '/compoments\contents\productByBrand';
+        $title = "Sản phẩm theo nhãn hàng";
+
+        require_once PATH_VIEW . '/master.php';
     }
-    
-    $view = '/compoments\contents\productByBrand';
-    
-    $title = "Sản phẩm theo nhãn hàng";
-    
-    require_once PATH_VIEW . '/master.php';
 }
-
-

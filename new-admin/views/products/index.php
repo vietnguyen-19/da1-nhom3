@@ -25,7 +25,6 @@
                         <th>Tên </th>
                         <th>Giá</th>
                         <th>Giá sale</th>
-                        <th>Mô tả</th>
                         <th>Hình ảnh</th>
                         <th>số lượng</th>
                         <th>Từ khóa</th>
@@ -41,9 +40,6 @@
                             <td><?= $product['p_name'] ?></td>
                             <td><?= $product['p_price'] ?></td>
                             <td><?= $product['p_sale_price'] ?></td>
-                            <td>
-                                <span><?= $product['p_description'] ?></span>
-                            </td>
                             <td><img src="<?= BASE_URL . $product['p_pimage'] ?>" alt=""></td>
                             <td><?= $product['p_quantity'] ?></td>
                             <td><?= $product['p_key_word'] ?></td>

@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="product_footer d-flex align-items-center">
                                 <div class="price_box">
-                                        <span class="regular_price"><?= $product['p_price'] ?></span>
+                                        <span class="regular_price"><?= number_format($product['p_sale_price'] ?: $product['p_price']) ?> Vnd</span>
                                     </div>
                                     <div class="add_to_cart">
                                     <a href="wishlist.html" title="Add to Wishlist"><span class="lnr lnr-heart"></span></a>
