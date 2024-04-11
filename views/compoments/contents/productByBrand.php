@@ -4,7 +4,7 @@
             <div class="col-12">
                 <?php foreach ($productByBrands as $productByBrand) : ?>
                 <div class="section_title">
-                    <h2><span>Sản phẩm của <?= $productByBrand['b_name'] ?></span></h2>
+                    <h2><span>Sản phẩm của <Strong><?=$brandName?></Strong></span></h2>
                 </div>
                 <div class="">
                     
