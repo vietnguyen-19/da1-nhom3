@@ -54,6 +54,8 @@ match ($act) {
     'product-detail' => ProductsShow($_GET['productID']),
     'ShowByBrand' =>ShowByBrand($_GET['brandID']),
 
+    'showByCategory' => showByCategory($_GET['categoryID']),
+
     'contact' => contactShow(),
 };
 
