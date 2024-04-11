@@ -32,10 +32,10 @@
                             <input type="text" class="form-control" id="name" value="<?= $brands['name'] ?>" placeholder="Enter name" name="name">
                         </div>
                         <div class="mb-3 mt-3">
-                            <label for="name" class="form-label">Hình ảnh:</label>
-                            <input type="file" class="form-control" id="image" name="image">
-                            <img src="<?= BASE_URL . $brands['image'] ?>" alt="" width="100px">
-                        </div>
+                        <label for="image" class="form-label">Hình ảnh:</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <img src="<?= BASE_URL . $brands['image'] ?>" alt="" width="100px">
+                    </div>
                     </div>
                 </div>
 

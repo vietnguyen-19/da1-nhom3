@@ -96,7 +96,7 @@ function brandsUpdate($id)
     if (!empty($_POST)) {
         $data = [
             "name" => $_POST['name'] ?? $brands['name'],
-            'image'        => get_file_upload('image',          $brands['image']),
+            "image"        => get_file_upload('image',          $brands['image']),
         ];
 
         validateBrandUpdate($id,$data);
