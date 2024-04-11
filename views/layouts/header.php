@@ -28,7 +28,9 @@ $categories = listAll('categories');
                                     <ul class="sub_menu">
                                         <?php foreach ($categories as $category) : ?>
                                             <li>
-                                                <a href="#"><?= $category['name'] ?></a>
+                                                <a href="<?= BASE_URL . '?act=showByCategory&categoryID=' .$category['id'] ?>">
+                                                    <?= $category['name'] ?>
+                                                </a>
                                             </li>
                                         <?php endforeach; ?>
                                     </ul>

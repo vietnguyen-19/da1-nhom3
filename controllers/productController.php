@@ -24,7 +24,7 @@ function ShowByBrand($brandID)
 {
     $productByBrands = listProductsByBrand($brandID);
     
-    $brandName = $productByBrands[0]['au_name'];
+    $brandName = $productByBrands[0]['b_name'];
     if (empty($productByBrands)) {
         e404();
     }

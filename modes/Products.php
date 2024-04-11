@@ -157,3 +157,39 @@ function listProductsByBrand($brandId)
         debug($e);
     }
 }
+
+
+function listProductsByCategory($categoryID)
+{
+    try {
+        $sql = "
+        SELECT 
+            p.id            AS p_id,
+            p.id_brand      AS p_id_brand,
+            p.id_category   AS p_id_category,
+            p.name          AS p_name,
+            p.price         AS p_price,
+            p.sale_price    AS p_sale_price,
+            p.description   AS p_description,
+            p.images        AS p_pimage,
+            p.img_thumbnail AS p_img_thumbnail,
+            p.quantity      AS p_quantity,
+            p.key_word      AS p_key_word,
+            p.view          AS p_view,
+            c.name          AS c_name
+        FROM products AS p
+        INNER JOIN categories AS c ON c.id = p.id_category
+        WHERE p.id_category = :categoryID
+        ORDER BY p.id DESC;
+
+        ";
+
+        $stmt = $GLOBALS['conn']->prepare($sql);
+        $stmt->bindParam(':categoryID', $categoryID);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    } catch (\Exception $e) {
+        debug($e);
+    }
+}

@@ -134,5 +134,9 @@ function orderList()
         $title = 'Đơn hàng';
         require_once PATH_VIEW . '/master.php';
     }
+    $view = '\order\order-list';
+    $title = 'Đơn hàng';
+    require_once PATH_VIEW . '/master.php';
+   
 }
 

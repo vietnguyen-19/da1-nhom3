@@ -6,6 +6,8 @@
                 <div class="col-12">
                     <div class="table_desc">
                         <div class="cart_page table-responsive">
+                        <?php
+                                    if (!empty($orders)){ ?>
                             <table>
                                 <thead>
                                     <tr>
@@ -21,9 +23,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <?php
-                                    if (!empty($orders)){
-                                        
+                                    <?php   
                                         foreach ($orders as $order) : ?>
                                             <tr>
                                                 <td class="product_id">
@@ -55,7 +55,8 @@
                                     <?php
                                         endforeach;
                                     }else{ ?>
-                                        <h2>Bạn chưa có đơn hàng nào</h2>
+                                    <br>
+                                        <h3>Bạn chưa có đơn hàng nào!!</h3>
                                     <?php } ?>
                                 </tbody>
                             </table>
