@@ -25,16 +25,25 @@ function showByCategory($categoryID){
 
     $showProductByCategories = listProductsByCategory($categoryID);
     
-    $categoryName = $showProductByCategories[0]['c_name'];
     
-    if (empty($showProductByCategories)) {
-        echo " san pham ko ton tai";
+    
+    if (!empty($showProductByCategories)) {
+        
+        $categoryName = $showProductByCategories[0]['c_name'];
+        $view = '\categories\show';
+        $title = 'loại sản phẩm';
+    
+        require_once PATH_VIEW . '/master.php';
+
+    }else{
+        $errorName = "Bạn chưa có sản phẩm nào";
+        $view = '\categories\show';
+        $title = 'loại sản phẩm';
+    
+        require_once PATH_VIEW . '/master.php';
     }
     
     
-    $view = '\categories\show';
-    $title = 'loại sản phẩm';
-
-    require_once PATH_VIEW . '/master.php';
+   
 
 }
